@@ -1,0 +1,137 @@
+.misenform {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+h3{
+    color: blue !important;
+    text-decoration: blueviolet wavy underline ;
+}
+
+.content{
+    padding: 20px;
+    margin-bottom: 50px;
+    border: 3px solid black;
+}
+
+.resulttext >h4{
+    font-size: 18px;
+    text-decoration: underline;
+    font-weight: bold;
+    color: rgb(219 68 202);
+}
+
+.pages {
+    margin-top: 25px !important;
+    border-top: blue 2px solid !important;
+    color: blueviolet !important;
+}
+
+h1.titre{
+    text-align: center !important;
+}
+
+
+/* .listopen{
+    display: none;
+}
+
+
+
+.photopen{
+    display: none;
+}
+
+.galleryopen{
+    display: none;
+} */
+
+.logincontent{
+    text-align: center;
+    width: 400px;
+}
+
+.picprofil-container >h3{
+    color: blueviolet !important;
+}
+
+.picprofil-container{
+    padding: 15px;
+    display: flex;
+    border: 2px black solid;
+    flex-direction: column;
+    align-items: center;
+}
+
+.picgallery-container >h3 {
+    color: blueviolet !important;
+}
+
+.picgallery-container{
+    padding: 15px;
+    display: flex;
+    border: 2px black solid;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mefPhoto{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.mefGallery{
+    text-align: center;
+    margin: 10px;
+}
+
+.mefPhotoGallery{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px blueviolet solid;
+}
+
+.fileprinc{
+    border: 3px blueviolet solid;
+    margin-bottom: 20px;
+}
+
+#photoprofil{
+    margin-top: 10px;
+}
+
+/* ///////////////////////////////////////////////////////////////////// */
+
+
+.menuadmin{
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    flex-direction: column;
+}
+
+li >a {
+    border-radius: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: blueviolet;
+    color: cyan !important;
+    text-decoration: none !important;
+}
+
+h3{
+    color: blue !important;
+}

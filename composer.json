@@ -1,0 +1,16 @@
+{
+    "name": "melis/sitebienetre",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Admin\\": "admin/src"
+        }
+    },
+    "authors": [
+        {
+            "name": "alesbesdria",
+            "email": "melissa@meirsman.fr"
+        }
+    ],
+    "require": {}
+}
