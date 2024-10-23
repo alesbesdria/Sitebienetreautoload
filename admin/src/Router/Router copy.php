@@ -49,12 +49,38 @@ class Router
 
             // Capture la méthode (action) et les paramètres
             $action = !empty($params) ? array_shift($params) : 'index';
-            if (method_exists($controller, $action)) {
-                $controller->$action(...$params);
-            } else {
-                http_response_code(404);
-                echo "La méthode $action n'existe pas dans le contrôleur $controllerClass.";
-            }
+            $controller->$action(...$params);
+
+
+
+            // Gestion spécifique pour les routes avec un ID utilisateur
+            // if ($controllerName == 'User' && !empty($params[0])) {
+            //     $id_user = $params[0]; // Récupération de l'ID utilisateur
+
+            //     // Gestion pour l'édition de l'utilisateur
+            //     if ($action == 'edit') {
+            //         // Appel de la méthode edit avec l'ID utilisateur
+            //         $controller->edit($id_user); 
+
+            //         // Si tu souhaites rediriger après l'édition (par exemple vers la page utilisateur)
+            //         header("Location: /admin/user"); // Redirection vers la liste des utilisateurs
+            //         exit(); // Toujours utiliser exit après une redirection
+            //     } 
+            //     // Gestion pour la mise à jour de l'utilisateur
+            //     elseif ($action == 'update') {
+            //         $controller->update($id_user); // Appel de la méthode update avec l'ID utilisateur
+
+            //         // Redirection vers la liste des utilisateurs après mise à jour
+            //         header("Location: /admin/user"); // Redirection après mise à jour
+            //         exit(); // Toujours utiliser exit après une redirection
+            //     } else {
+            //         http_response_code(404);
+            //         echo "L'action $action n'existe pas pour User.";
+            //     }
+            // }
+
+
+
         }
         // Si aucune route n'est demandée, on charge la page d'accueil
         else {

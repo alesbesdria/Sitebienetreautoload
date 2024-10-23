@@ -1,7 +1,8 @@
 <h1>Modifier l'utilisateur</h1>
 
 <?php if ($user): ?>
-    <form action="" method="POST">
+    <form action="<?= ROOT ?>/admin/user/update/<?= $user->id_user ?>" method="POST">
+    <!-- <form action="" method="POST"> -->
         <div>
             <label for="user_firstname">Prénom :</label>
             <input type="text" id="user_firstname" name="user_firstname" value="<?= $user->user_firstname ?>" required>

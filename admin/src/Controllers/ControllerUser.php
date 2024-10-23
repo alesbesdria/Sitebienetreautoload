@@ -21,19 +21,22 @@ class ControllerUser
     {
         $title = "Gestion administrateur";
         $titlesecond = "Liste utilisateurs";
-        
+
         // Récupérer tous les utilisateurs
         $users = $this->userModel->selectAll();
-        $view = ROOT . "/admin/views/user.php";
-        include ROOT . "/admin/views/template.php";
-
+        $view = ROOT . "/admin/Views/user.php";
+        include ROOT . "/admin/Views/template.php";
     }
 
     // Affiche le formulaire d'ajout d'utilisateur
     public function create()
     {
+        $title = "Gestion administrateur";
+        $titlesecond = "Ajout d'un nouvel utilisateur";
         $roles = $this->roleModel->selectAll();
-        include ROOT . "/admin/views/user/create.php"; // Assurez-vous que ce fichier existe
+        $view =  ROOT . "/admin/Views/insert_user.php"; 
+        include ROOT . "/admin/Views/template.php";
+
     }
 
     // Enregistre un nouvel utilisateur
@@ -53,7 +56,9 @@ class ControllerUser
             exit; // Important de sortir pour éviter l'exécution de code supplémentaire
         } else {
             $roles = $this->roleModel->selectAll();
-            include ROOT . "/admin/views/user/create.php"; // Afficher le formulaire avec erreurs
+            // include ROOT . "/admin/views/insert_user.php"; // Afficher le formulaire avec erreurs
+            $view =  ROOT . "/admin/Views/insert_user.php"; 
+            include ROOT . "/admin/Views/template.php";
         }
     }
 
@@ -77,8 +82,15 @@ class ControllerUser
     // Met à jour un utilisateur existant
     public function update($id_user)
     {
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = []; // Tableau pour stocker les erreurs
+
+
+            error_log("Mise à jour de l'utilisateur avec l'ID : " . $id_user);
+            var_dump($_POST); // Affiche le contenu des données POST pour vérifier que les données arrivent
+            // Continuez avec le reste de la logique
+
 
             // Vérification des données du formulaire
             if (empty($_POST['user_firstname'])) {
@@ -131,7 +143,7 @@ class ControllerUser
                 );
 
                 // Redirection vers la liste des utilisateurs après mise à jour
-                header("Location: " . ROOT . "/admin/user"); 
+                header("Location: " . ROOT . "/admin/user");
                 exit(); // Important de sortir
             } else {
                 // S'il y a des erreurs, on récupère à nouveau l'utilisateur et les rôles

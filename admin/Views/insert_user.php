@@ -1,5 +1,5 @@
 <h1>Ajouter un utilisateur</h1>
-    <form action="/users/store" method="POST">
+    <form action="/admin/user/store" method="POST">
         <div>
             <label for="user_firstname">Prénom :</label>
             <input type="text" id="user_firstname" name="user_firstname" required>
@@ -16,7 +16,7 @@
             <label for="id_role">Rôle :</label>
             <select name="id_role" id="id_role" required>
                 <?php foreach ($roles as $role): ?>
-                    <option value="<?= $role->db_idrole ?>"><?= $role->db_rolename ?></option>
+                    <option value="<?= $role->id_role ?>"><?= $role->role_name ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
