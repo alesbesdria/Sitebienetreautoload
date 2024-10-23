@@ -15,17 +15,17 @@ class ControllerLogin
 
     public function index()
     {
-
         $title = "Gestion administrateur";
         $titlesecond = "Connexion";
         $view = ROOT . "/admin/Views/login.php";
-        include ROOT . "/admin/views/templatelogin.php";
+
+        include ROOT . "/admin/Views/templatelogin.php";
     }
 
     // Affiche le formulaire de connexion
     public function loginForm()
     {
-        include($_SERVER["DOCUMENT_ROOT"] . "/views/login.php");
+        include($_SERVER["DOCUMENT_ROOT"] . "/Views/login.php");
     }
 
     // Gère l'authentification de l'utilisateur
@@ -40,7 +40,7 @@ class ControllerLogin
             header("Location: /admin/user");
         } else {
             $error = "Identifiants incorrects.";
-            include ROOT . "admin/views/login.php";
+            include ROOT . "admin/Views/login.php";
         }
     }
 
