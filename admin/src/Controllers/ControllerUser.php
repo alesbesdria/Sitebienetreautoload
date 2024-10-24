@@ -78,7 +78,7 @@ class ControllerUser
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = []; 
 
-
+            echo "coucou";
             error_log("Mise à jour de l'utilisateur avec l'ID : " . $id_user);
             var_dump($_POST); 
 
@@ -92,21 +92,15 @@ class ControllerUser
             if (empty($_POST['user_mail']) || !filter_var($_POST['user_mail'], FILTER_VALIDATE_EMAIL)) {
                 $errors['user_mail'] = "L'email est requis et doit être valide.";
             }
-            if (!empty($_POST['user_mdp']) && $_POST['user_mdp'] !== $_POST['confMdp']) {
+            if (isset($_POST['user_mdp']) && $_POST['user_mdp'] !== $_POST['confMdp']) {
                 $errors['user_mdp'] = "Les mots de passe ne correspondent pas.";
             }
 
             if (empty($errors)) {
                 error_log("ID utilisateur reçu: " . $id_user); 
-
+///////////////////////////////
                 $userId = is_array($id_user) ? $id_user[0] : $id_user; 
                 $user = $this->userModel->selectOne('*', 'id_user = ?', [$userId]);
-
-                if (!$user) {
-                    http_response_code(404);
-                    echo "L'utilisateur avec l'ID $id_user n'existe pas.";
-                    exit();
-                }
 
                 $userData = [
                     'user_firstname' => $_POST['user_firstname'],
@@ -116,10 +110,12 @@ class ControllerUser
                     'user_mdp' => $_POST['user_mdp'] ? password_hash($_POST['user_mdp'], PASSWORD_BCRYPT) : null,
                 ];
 
+                var_dump($userData);    
+                die;
                 if (empty($userData['user_mdp'])) {
                     unset($userData['user_mdp']);
                 }
-
+// //////////////////////////////////////////////////
                 $this->userModel->update(
                     'user_firstname = ?, user_lastname = ?, user_mail = ?, id_role = ?, user_mdp = ?',
                     array_values($userData),
