@@ -7,7 +7,7 @@ $controller = new ControllerText();
 ?>
 <?php
 
-$page = isset($_GET['page']) ? $_GET['page'] : 1; //recuperer ce fichu id ici grrr
+$page = isset($_GET['page']) ? $_GET['page'] : 1; 
 
 $controller->show($page);
 echo "<h1>" . htmlspecialchars($titre) . "</h1><br>"; 

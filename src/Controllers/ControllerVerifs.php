@@ -1,13 +1,14 @@
 <?php
-class FormValidator {
+
+namespace App\Controllers;
+
+class ControllerVerifs {
     private $errors = [];
 
-    // Nettoyer les données pour éviter les failles XSS
     private function sanitize($data) {
         return htmlspecialchars(strip_tags(trim($data)));
     }
 
-    // Vérification du nom (uniquement des lettres et des espaces)
     public function validateName($name) {
         $name = $this->sanitize($name);
         if (!preg_match("/^[a-zA-ZÀ-ÿ '-]+$/", $name)) {
@@ -16,7 +17,6 @@ class FormValidator {
         return $name;
     }
 
-    // Vérification du prénom (mêmes règles que pour le nom)
     public function validatePrenom($prenom) {
         $prenom = $this->sanitize($prenom);
         if (!preg_match("/^[a-zA-ZÀ-ÿ '-]+$/", $prenom)) {
@@ -25,7 +25,6 @@ class FormValidator {
         return $prenom;
     }
 
-    // Vérification du numéro de téléphone (format français)
     public function validateTelephone($telephone) {
         $telephone = $this->sanitize($telephone);
         if (!preg_match("/^[0-9]{10}$/", $telephone)) {
@@ -34,7 +33,6 @@ class FormValidator {
         return $telephone;
     }
 
-    // Vérification de l'email
     public function validateEmail($email) {
         $email = $this->sanitize($email);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -43,7 +41,6 @@ class FormValidator {
         return $email;
     }
 
-    // Vérification du sujet
     public function validateSujet($sujet) {
         $sujet = $this->sanitize($sujet);
         if (empty($sujet)) {
@@ -52,7 +49,6 @@ class FormValidator {
         return $sujet;
     }
 
-    // Vérification du message
     public function validateMessage($message) {
         $message = $this->sanitize($message);
         if (empty($message)) {
@@ -61,12 +57,10 @@ class FormValidator {
         return $message;
     }
 
-    // Fonction pour vérifier si le formulaire est valide
     public function isFormValid() {
         return empty($this->errors);
     }
 
-    // Retourner les erreurs
     public function getErrors() {
         return $this->errors;
     }
@@ -75,11 +69,10 @@ class FormValidator {
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    require_once 'FormValidator.php'; // Inclure la classe de validation
+    require_once 'FormValidator.php'; 
 
-    $validator = new FormValidator();
+    $validator = new ControllerVerifs();
 
-    // Récupérer et valider les données du formulaire
     $nom = $validator->validateName($_POST['nom']);
     $prenom = $validator->validatePrenom($_POST['prenom']);
     $telephone = $validator->validateTelephone($_POST['telephone']);
@@ -87,14 +80,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sujet = $validator->validateSujet($_POST['sujet']);
     $message = $validator->validateMessage($_POST['message']);
 
-    // Vérifier si le formulaire est valide
     if ($validator->isFormValid()) {
-        // Si tout est correct, traiter les données
-        // Par exemple, envoyer un email ou stocker les informations dans une base de données
 
         echo "Le formulaire a été soumis avec succès !";
     } else {
-        // Si des erreurs sont présentes, les afficher
         $errors = $validator->getErrors();
         foreach ($errors as $field => $error) {
             echo "<p>Erreur dans le champ $field : $error</p>";

@@ -8,8 +8,8 @@
         <div class="contact">
             <img class="birdfeuille" src="/public/assets/icone/feuille_automne.png" alt="oiseau">
             <div class="ecrire">
-                <a class="textcontact" href="?p=text/show/7">Contactez-moi !</a>
-                <a class="logocontact" href="?p=text/show/7"><img src="/public/assets/icone/plume.png" alt="contact"
+                <a class="textcontact" href="/contacts/index">Contactez-moi !</a>
+                <a class="logocontact" href="/contacts/index"><img src="/public/assets/icone/plume.png" alt="contact"
                         id="contact"></a>
             </div>
         </div>

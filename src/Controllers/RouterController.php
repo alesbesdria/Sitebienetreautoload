@@ -1,5 +1,5 @@
 <?php
-namespace Admin\Controllers;
+namespace App\Controllers;
 
 class RouterController{
     

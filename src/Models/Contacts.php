@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Models;
+namespace App\Models;
 
 
 class Contacts extends Crud
@@ -10,7 +10,7 @@ class Contacts extends Crud
     protected $visitlastname;
     protected $visitcontact_firstname;
     protected $visitcontact_mail;
-    protected $visitcontact_date; //date a laquelle le formulaire a ete envoyé
+    protected $visitcontact_date; 
     protected $visitcontact_tel;
 
     public function __construct()
@@ -19,4 +19,16 @@ class Contacts extends Crud
         $this->table = "visit_contact";
     }
 
+    public function create($data)
+    {
+        $columnNames = ['visitlastname', 'visitcontact_firstname', 'visitcontact_mail', 'visitcontact_tel', 'visitcontact_date', 'visitmessage'];
+        return $this->insert($columnNames, [
+            $data['visitlastname'],
+            $data['visitcontact_firstname'],
+            $data['visitcontact_mail'],
+            $data['visitcontact_tel'],
+            $data['visitcontact_date'],
+            $data['visitmessage']
+        ]);
+    }
 }

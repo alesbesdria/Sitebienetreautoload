@@ -19,7 +19,6 @@
                         <td><?php echo htmlspecialchars($user->user_mail); ?></td>
                         <td>
                             <?php
-                            // Affiche le rôle correspondant (si nécessaire)
                             $role = $this->roleModel->selectOne('role_name', 'id_role = ?', [$user->id_role]);
                             echo htmlspecialchars($role->role_name);
                             ?>

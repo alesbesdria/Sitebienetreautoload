@@ -2,52 +2,67 @@
 
 namespace App\Router;
 
-use Admin\Controllers\RouterController;
-use App\Controllers\ControllerText;
-// use App\Controllers\ControllerProfil;
-
+use App\Controllers\RouterController;  
+use Exception;
 
 class Router
 {
     public function start()
     {
+        // Récupérer l'URI actuelle
         $uri = $_SERVER['REQUEST_URI'];
+
+        // Supprimer le slash final s'il existe, sauf si l'URI est simplement "/"
         if (!empty($uri) && $uri != '/' && $uri[-1] === "/") {
-            $uri = substr($uri, 0, -1);
-            http_response_code(301);
+            $uri = substr($uri, 0, -1); // Supprimer le dernier slash
+            http_response_code(301);  // Redirection permanente
             header('Location: ' . $uri);
-            exit; // Ajoutez exit après redirection
+            exit;
         }
 
+        // Récupérer les paramètres de l'URL
         $params = [];
         if (isset($_GET['p']) && !empty($_GET['p'])) {
             $params = explode('/', $_GET['p']);
         }
 
-        // Vérifiez que $params[0] existe
-        if (!empty($params) && isset($params[0])) {
-            $controllerName = 'Controller' . ucfirst(array_shift($params));
-            $controllerClass = '\\App\\Controllers\\' . $controllerName;
-
-            if (class_exists($controllerClass)) {
-                $controller = new $controllerClass();
-                $action = (isset($params[0])) ? array_shift($params) : 'index';
-
-                if (method_exists($controller, $action)) {
-                    // $controller->$action($params);
-                    $controller->$action(isset($params[0]) ? $params[0] : null);
-                } else {
-                    http_response_code(404);
-                    echo "La page recherchée n'existe pas";
-                }
-            } else {
-                http_response_code(404);
-                echo "Le contrôleur n'existe pas";
-            }
-        } else {
-            echo 'Pas de paramètres';
+        // Si aucun paramètre, charger la page par défaut
+        if (empty($params) || !isset($params[0])) {
             $controller = new RouterController();
-            $controller->index();
+            return $controller->index();
+        }
+
+        // Le premier paramètre correspond au contrôleur
+        $controllerName = 'Controller' . ucfirst(array_shift($params));  // Par exemple : "contacts" devient "ControllerContacts"
+        $controllerClass = '\\App\\Controllers\\' . $controllerName;  // Namespace complet du contrôleur
+
+        // Vérifier si le contrôleur existe
+        if (!class_exists($controllerClass)) {
+            http_response_code(404);
+            echo "Le contrôleur $controllerClass n'existe pas.";
+            return;
+        }
+
+        // Instancier le contrôleur
+        $controller = new $controllerClass();
+
+        // Le deuxième paramètre correspond à l'action (méthode)
+        $action = (isset($params[0])) ? array_shift($params) : 'index';  // Si aucune action, utiliser "index"
+
+        // Vérifier si la méthode existe dans le contrôleur
+        if (!method_exists($controller, $action)) {
+            http_response_code(404);
+            echo "La méthode $action n'existe pas dans le contrôleur $controllerName.";
+            return;
+        }
+
+        // Appeler la méthode correspondante
+        if (!empty($params)) {
+            // S'il reste des paramètres, on les passe à la méthode
+            call_user_func_array([$controller, $action], $params);
+        } else {
+            // Sinon, appel de la méthode sans paramètre
+            $controller->$action();
         }
     }
 }

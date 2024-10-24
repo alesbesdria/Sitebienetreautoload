@@ -10,7 +10,7 @@ class Contacts extends Crud
     protected $visitlastname;
     protected $visitcontact_firstname;
     protected $visitcontact_mail;
-    protected $visitcontact_date; //date a laquelle le formulaire a ete envoyé
+    protected $visitcontact_date; 
     protected $visitcontact_tel;
 
     public function __construct()

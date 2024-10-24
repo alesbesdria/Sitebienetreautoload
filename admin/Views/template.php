@@ -4,7 +4,6 @@ include ROOT . "/admin/_blocks/doctype.php";
 ?>
 
 <body>
-    <!-- /////////////ICI//////////////////// -->
     <div class="logout-container">
         <form action="/admin/login/logout" method="POST">
             <button type="submit" class="btn-logout">Déconnexion</button>
