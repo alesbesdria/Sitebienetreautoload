@@ -16,8 +16,8 @@ class ControllerContacts
 
     public function index()
     {
-        $view = ROOT . "/admin/Views/contact.php"; 
-        include ROOT . "/admin/Views/template.php"; 
+        $view = ROOT . "/Views/contact.php"; 
+        include ROOT . "/Views/template.php"; 
     }
 
     public function submit()

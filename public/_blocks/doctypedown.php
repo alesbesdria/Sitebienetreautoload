@@ -18,9 +18,9 @@
 </main>
 <footer>
     <div class="mentions">
-        <a href="?p=text/show/15">Mentions légales</a>
-        <a href="?p=text/show/5">Conditions générales de vente</a>
-        <a href="?p=text/show/17">Politique de confidentialité</a>
+        <a href="text/show/15">Mentions légales</a>
+        <a href="text/show/5">Conditions générales de vente</a>
+        <a href="text/show/17">Politique de confidentialité</a>
     </div>
     <div class="icones">
         <a class="soc" href="https://www.facebook.com/"><img src="/public/assets/icone/Facebook.png" alt="bouton facebook"

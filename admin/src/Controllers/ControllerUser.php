@@ -31,7 +31,7 @@ class ControllerUser
         $title = "Gestion administrateur";
         $titlesecond = "Ajout d'un nouvel utilisateur";
         $roles = $this->roleModel->selectAll();
-        $view =  ROOT . "/admin/Views/insert_user.php"; 
+        $view =  ROOT . "/admin/Views/create.php"; 
         include ROOT . "/admin/Views/template.php";
 
     }
@@ -78,7 +78,6 @@ class ControllerUser
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = []; 
 
-            echo "coucou";
             error_log("Mise à jour de l'utilisateur avec l'ID : " . $id_user);
             var_dump($_POST); 
 

@@ -37,6 +37,14 @@ class Crud extends pdoclass
         $result->execute($selection);
         return $result->fetch(\PDO::FETCH_OBJ);
     }
+    public function selectFirst($objects = '*', $condition = '', $selection = [])
+    {
+        // n'est pas trouvée
+        $req = "SELECT $objects FROM $this->table" . " LIMIT 1 ORDER BY id DESC";
+        $result = $this->request->prepare($req);
+        $result->execute($selection);
+        return $result->fetch(\PDO::FETCH_OBJ);
+    }
 
     public function insert($columnname, $newdata)
     {
@@ -51,7 +59,7 @@ class Crud extends pdoclass
     {
         $req = "UPDATE $this->table SET $columnname = ? WHERE $idname = ?";
         $result = $this->request->prepare($req);
-        
+
         $params = array_merge([$newdata, $idnbr], $selection);
         return $result->execute($params);
     }

@@ -46,6 +46,7 @@ class Texte extends Crud
     // {
     //     echo $this->db_contenttext;
     // }
+
 }
 
 // $texte1 = new Texte(1, 'premier texte', 'contenu du premier texte');

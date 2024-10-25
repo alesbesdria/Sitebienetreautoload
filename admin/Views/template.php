@@ -15,19 +15,19 @@ include ROOT . "/admin/_blocks/doctype.php";
         <h1 class="titre"><?= $title; ?></h1>
         <menu class="menuadmin">
             <li>
-                <a href="admin/text/index/1">Gestion de contenu de pages</a>
+                <a href="/text/index/1">Gestion de contenu de pages</a>
             </li>
             <li>
-                <a href="admin/profil/index/1">Changement de photo de profil</a>
+                <a href="profil/index/1">Changement de photo de profil</a>
             </li>
             <li>
-                <a href="admin/gallery/index/1">Gestion de la galerie</a>
+                <a href="gallery/index/1">Gestion de la galerie</a>
             </li>
             <li>
-                <a href="admin/contacts/index/1">Liste des demandes de contact</a>
+                <a href="contacts/index/1">Liste des demandes de contact</a>
             </li>
             <li>
-                <a href="admin/visiteurs/index/1">Liste des visiteurs</a>
+                <a href="visiteurs/index/1">Liste des visiteurs</a>
             </li>
         </menu>
         <h2 class="titre"><?= $titlesecond; ?></h2>

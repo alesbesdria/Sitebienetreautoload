@@ -1,13 +1,5 @@
 <?php
 
-
-namespace App\Controllers;
-
-
-use App\Models\Texte;
-
-
-
 namespace App\Controllers;
 
 use App\Models\Texte;
@@ -23,33 +15,33 @@ class ControllerText
 
     public function index()
     {
-        // $view = ROOT . "/Views/publiccontent.php";
-        // require_once ROOT . "/Views/template.php";
-    }
-
-    public function show($page)
-{
-    if (is_numeric($page)) {
-        $texte = $this->model->findById($page);
-    } else {
-        $texte = $this->model->findByTitle($page);
-    }
-
-    
-
-    if ($texte) {
-        $titre = $texte->getTitre(); 
-        $contenu = $texte->getContenu(); 
         $view = ROOT . "/Views/publiccontent.php";
-
-        // Vérifiez que les variables sont correctement assignées
-        
-
         require_once ROOT . "/Views/template.php";
-    } else {
-        echo "Texte non trouvé.";
     }
-}
+
+    public function show($page = 0)
+    {
+        if (is_numeric($page)) {
+            if ($page == 0) {
+                $texte = $this->model->findById(1);
+            } else
+                $texte = $this->model->findById($page);
+        } else {
+            $texte = $this->model->findByTitle($page);
+        }
+        if ($texte) {
+            $titre = $texte->getTitre();
+            $contenu = $texte->getContenu();
+            $view = ROOT . "/Views/publiccontent.php";
+
+            // Vérifiez que les variables sont correctement assignées
+
+
+            require_once ROOT . "/Views/template.php";
+        } else {
+            echo "Texte non trouvé.";
+        }
+    }
 
 
 
@@ -65,7 +57,7 @@ class ControllerText
 
 
 
-    
+
 
 
 

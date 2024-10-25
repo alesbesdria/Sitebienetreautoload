@@ -1,5 +1,5 @@
 
-    <a href="/user/create">Ajouter un utilisateur</a>
+    <a href="/admin/user/create">Ajouter un utilisateur</a>
     <table>
         <thead>
             <tr>

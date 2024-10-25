@@ -1,8 +1,8 @@
 <h1>Modifier l'utilisateur</h1>
 <?php 
 
-var_dump($user);
-die;
+// var_dump($user);
+// die;
 
 if ($user): ?>
     <form action="" method="POST">
