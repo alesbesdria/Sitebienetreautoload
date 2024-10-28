@@ -25,7 +25,8 @@ class ControllerProfil
 
     public function handleUpload()
     {
-        $folderProfil = 'assets/imageprofil/';
+        // Utilisez la constante DOCUMENT_ROOT pour le chemin d'accès
+        $folderProfil = $_SERVER["DOCUMENT_ROOT"] . "/admin/assets/imageprofil/";
         $imageName = 'photo_profil.jpg'; 
         $extensions = ['jpeg', 'jpg', 'png']; 
         
@@ -38,11 +39,11 @@ class ControllerProfil
                     $fileRegister = $folderProfil . $imageName;
     
                     if (move_uploaded_file($_FILES['imageProfil']['tmp_name'], $fileRegister)) {
+                        // Mettez à jour le modèle avec un tableau associatif
                         $this->picProfilModel->update(
-                            'picprofil_photo', 
-                            $imageName,        
-                            'picprofil_name',  
-                            'DefaultUser'      
+                            'DefaultUser', // Identifiant de l'utilisateur
+                            ['picprofil_photo' => $imageName], // Tableau associatif pour la mise à jour
+                            'picprofil_name' // Nom de la colonne pour la condition
                         );
     
                         return "Modification réussie !";
@@ -60,5 +61,4 @@ class ControllerProfil
         return null; 
     }
 }
-
 ?>

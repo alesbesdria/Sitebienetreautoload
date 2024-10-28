@@ -15,7 +15,7 @@ include ROOT . "/admin/_blocks/doctype.php";
         <h1 class="titre"><?= $title; ?></h1>
         <menu class="menuadmin">
             <li>
-                <a href="/text/index/1">Gestion de contenu de pages</a>
+                <a href='<?php ROOT ?> . "../admin/text/index/1"'>Gestion de contenu de pages</a>
             </li>
             <li>
                 <a href="profil/index/1">Changement de photo de profil</a>

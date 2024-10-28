@@ -1,15 +1,21 @@
-</article>
-</section>
+
+
+            </article>
+        </section>
+
+
 </div>
 <div class="contentcontact">
 
     <div class="bird">
 
         <div class="contact">
-            <img class="birdfeuille" src="/public/assets/icone/feuille_automne.png" alt="oiseau">
+
+            <img class="birdfeuille" src="/public/assets/icone/feuille_automne.png" alt="contactez nous image feuille automnale">
+
             <div class="ecrire">
                 <a class="textcontact" href="/contacts/index">Contactez-moi !</a>
-                <a class="logocontact" href="/contacts/index"><img src="/public/assets/icone/plume.png" alt="contact"
+                <a class="logocontact" href="/contacts/index"><img src="/public/assets/icone/plume.png" alt="contactez nous image crayon plume"
                         id="contact"></a>
             </div>
         </div>

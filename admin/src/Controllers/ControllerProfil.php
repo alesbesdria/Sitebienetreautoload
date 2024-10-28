@@ -9,7 +9,6 @@ class ControllerProfil
     protected $picProfilModel;
     private $folderProfil;
 
-
     public function __construct()
     {
         $this->folderProfil = $_SERVER["DOCUMENT_ROOT"] . "/admin/assets/imageprofil/";
@@ -40,10 +39,8 @@ class ControllerProfil
     
                     if (move_uploaded_file($_FILES['imageProfil']['tmp_name'], $fileRegister)) {
                         $this->picProfilModel->update(
-                            'picprofil_photo', 
-                            $imageName,        
-                            'picprofil_name',  
-                            'DefaultUser'      
+                            'DefaultUser',  // Identifiant de l'utilisateur
+                            ['picprofil_photo' => $imageName] // Tableau associatif pour la mise à jour
                         );
     
                         return "Modification réussie !";
@@ -61,5 +58,4 @@ class ControllerProfil
         return null; 
     }
 }
-
 ?>

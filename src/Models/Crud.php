@@ -3,7 +3,7 @@
 
 namespace App\Models;
 
-use App\Models\pdoclass;
+use Admin\Models\pdoclass;
 
 
 
@@ -37,23 +37,53 @@ class Crud extends pdoclass
         $result->execute($selection);
         return $result->fetch(\PDO::FETCH_OBJ);
     }
-
-    public function insert($columnname, $newdata)
+    public function selectFirst($objects = '*', $condition = '', $selection = [])
     {
-        $columns = implode(', ', $columnname);
-        $placeholders = implode(', ', array_fill(0, count($newdata), '?'));
-        $req = "INSERT INTO $this->table ($columns) VALUES ($placeholders)";
+        // n'est pas trouvée
+        $req = "SELECT $objects FROM $this->table" . " LIMIT 1 ORDER BY id DESC";
         $result = $this->request->prepare($req);
-        return $result->execute($newdata);
+        $result->execute($selection);
+        return $result->fetch(\PDO::FETCH_OBJ);
     }
 
-    public function update($columnname, $newdata, $idname, $idnbr, $selection = [])
+    public function insert(array $infos)
     {
-        $req = "UPDATE $this->table SET $columnname = :newdata WHERE $idname = :idnbr";
-        $result = $this->request->prepare($req);
-        $result->bindValue(':newdata', $newdata, \PDO::PARAM_STR);
-        $result->bindValue(':idnbr', $idnbr, \PDO::PARAM_INT);
-        return $result->execute($selection);
+        // je recupere les données des colonnes dans des tableau keys et placeholders
+        $keys = implode(", ", array_keys($infos));
+        $placeholders = ":" . implode(", :", array_keys($infos));
+
+        //!Je prepare ma requette en premier
+        $req = $this->request->prepare("INSERT INTO $this->table ($keys) VALUES ($placeholders)");
+
+        //je cree une boucle foreach pour bind chaque :key a sa value
+        foreach ($infos as $key => $value) {
+            $req->bindValue(":$key", $value);
+        }
+        //Jexecute ma requette
+        $req->execute();
+        return $this->request->lastInsertId();
+    }
+
+    public function update($id, array $infos)
+    {
+        // je recupere les données des colonnes dans un tableau queryData
+        $queryData = [];
+        foreach ($infos as $key => $value) {
+            $queryData[] = "$key = :$key"; // nom = :nom, prenom = :prenom
+        }
+        $queryDataStr = implode(", ", $queryData);
+    
+        //!Je prepare ma requette en premier
+        $req = $this->request->prepare("UPDATE $this->table SET $queryDataStr WHERE id = :id");
+    
+        //je cree une boucle foreach pour bind chaque :key a sa value
+        foreach ($infos as $key => $value) {
+            $req->bindValue(":$key", $value);
+        }
+        $req->bindValue(":id", $id);
+    
+        //Jexecute ma requette
+        $req->execute();
     }
 
     public function delete($idname, $idnbr, $selection = [])
@@ -63,7 +93,6 @@ class Crud extends pdoclass
         $result->bindValue(':idnbr', $idnbr, \PDO::PARAM_INT);
         return $result->execute($selection);
     }
-
 
     public function search($id)
     {

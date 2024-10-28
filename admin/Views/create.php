@@ -1,5 +1,4 @@
-<h1>Ajouter un utilisateur</h1>
-    <form action="/admin/user/store" method="POST">
+    <form action="user/store" method="POST">
         <div>
             <label for="user_firstname">Prénom :</label>
             <input type="text" id="user_firstname" name="user_firstname" required>

@@ -12,10 +12,13 @@ use App\Controllers\ControllerText;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
-    <title>Stéphanie Chantôme-Formation Bien Être</title>
+    <meta name="description" content="Formation bien être, entretien motivationnel. Se sentir bien en apprenant">
+    <meta name="keywords" content="esprit zen, détente, formations, développement personnel.">
 
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <title>Stéphanie Chantôme-Formation Bien Être</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 
 <body>
@@ -25,7 +28,9 @@ use App\Controllers\ControllerText;
 
         <div class="etp">
             <div class="etpcontent">
-                <img class="imgetp" src="/public/assets/icone/ornement.png" alt="contour du titre">
+
+                <img class="imgetp" src="/public/assets/icone/ornement.png" alt="image ornementale du titre">
+
                 <div class="etpname">
                     La Diction
                 </div>
@@ -45,8 +50,16 @@ use App\Controllers\ControllerText;
                 </div>
             </nav>
 
+            <!-- <nav class="mininav">
+                <ul>
+                    <li><a href="text/show/20">Mes valeurs</a></li>
+                    <li><a class="text1" href="text/show/9">Formations</a></li>
+                    <li><a href="text/show/18">Ressources</a></li>
+                </ul>
+            </nav> -->
 
-            <div class="mininav">
+
+            <!-- <div class="mininav">
                 <a href="text/show/20">
                     Mes valeurs
                 </a>
@@ -57,7 +70,7 @@ use App\Controllers\ControllerText;
                 <a href="?page=18">
                     Ressources
                 </a>
-            </div>
+            </div> -->
             <div class="navcolor">
                 <div class="navcontent">
                     <a class="entretientitre" href="text/show/9">Entretien motivationnel</a>
@@ -130,5 +143,7 @@ use App\Controllers\ControllerText;
                     </div>
                 </div>
             </div>
+
+
             <section class="maintext">
                 <article class="textprinc">

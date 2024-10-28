@@ -31,35 +31,57 @@ class ControllerUser
         $title = "Gestion administrateur";
         $titlesecond = "Ajout d'un nouvel utilisateur";
         $roles = $this->roleModel->selectAll();
-        $view =  ROOT . "/admin/Views/create.php"; 
+        $view = ROOT . "/admin/Views/create.php";
         include ROOT . "/admin/Views/template.php";
-
     }
 
-    public function store($userData)
+    public function store()
     {
+        // Récupérer les données du formulaire
+        $userData = $_POST; // On obtient les données directement depuis la superglobale $_POST
+
+        // Vérifier que le mot de passe et sa confirmation correspondent
+        if ($userData['user_mdp'] !== $userData['confMdp']) {
+            $error = "Les mots de passe ne correspondent pas.";
+            $roles = $this->roleModel->selectAll();
+            $view = ROOT . "/admin/Views/insert_user.php";
+            include ROOT . "/admin/Views/template.php";
+            return;
+        }
+    
+        // Valider les autres champs du formulaire
         if ($this->validateUserForm($userData)) {
-            $hashedPassword = password_hash($userData['user_mdp'], PASSWORD_BCRYPT);
-            $userData['user_mdp'] = $hashedPassword;
-
+            // Liste des colonnes à insérer et des valeurs correspondantes
+            $columns = ['user_firstname', 'user_lastname', 'user_mail', 'id_role', 'user_mdp'];
+            $insertData = [];
+    
+            foreach ($columns as $column) {
+                // Ajouter chaque donnée au tableau, en vérifiant si c'est le mot de passe pour le hashage
+                $insertData[$column] = ($column === 'user_mdp') 
+                    ? password_hash($userData[$column], PASSWORD_BCRYPT)
+                    : $userData[$column];
+            }
+    
+            // Appeler insert pour insérer dans la base de données
             $this->userModel->insert(
-                ['user_firstname', 'user_lastname', 'user_mail', 'id_role', 'user_mdp'],
-                array_values($userData)
+                array_keys($insertData),   // Noms des colonnes
+                array_values($insertData)  // Valeurs correspondantes
             );
-
+    
+            // Redirection après l'insertion réussie
             header("Location: /admin/user/index"); 
             exit; 
         } else {
+            // Si la validation échoue, réafficher le formulaire avec les erreurs
             $roles = $this->roleModel->selectAll();
-            // include ROOT . "/admin/views/insert_user.php"; // Afficher le formulaire avec erreurs
-            $view =  ROOT . "/admin/Views/insert_user.php"; 
+            $view = ROOT . "/admin/Views/insert_user.php"; 
             include ROOT . "/admin/Views/template.php";
         }
     }
 
     public function edit($id_user)
     {
-        $userId = is_array($id_user) ? $id_user[0] : $id_user; 
+        $userId = is_array($id_user) ? $id_user[0] : $id_user;
         $user = $this->userModel->selectOne('*', 'id_user = ?', [$userId]);
 
         if (!$user) {
@@ -69,18 +91,13 @@ class ControllerUser
         }
 
         $roles = $this->roleModel->selectAll();
-        include ROOT . "/admin/Views/edit_user.php"; 
+        include ROOT . "/admin/Views/edit_user.php";
     }
 
     public function update($id_user)
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $errors = []; 
-
-            error_log("Mise à jour de l'utilisateur avec l'ID : " . $id_user);
-            var_dump($_POST); 
-
+            $errors = [];
 
             if (empty($_POST['user_firstname'])) {
                 $errors['user_firstname'] = "Le prénom est requis.";
@@ -96,25 +113,19 @@ class ControllerUser
             }
 
             if (empty($errors)) {
-                error_log("ID utilisateur reçu: " . $id_user); 
-///////////////////////////////
-                $userId = is_array($id_user) ? $id_user[0] : $id_user; 
-                $user = $this->userModel->selectOne('*', 'id_user = ?', [$userId]);
-
+                $userId = is_array($id_user) ? $id_user[0] : $id_user;
                 $userData = [
                     'user_firstname' => $_POST['user_firstname'],
                     'user_lastname' => $_POST['user_lastname'],
                     'user_mail' => $_POST['user_mail'],
-                    'id_role' => $_POST['id_role'], 
+                    'id_role' => $_POST['id_role'],
                     'user_mdp' => $_POST['user_mdp'] ? password_hash($_POST['user_mdp'], PASSWORD_BCRYPT) : null,
                 ];
 
-                var_dump($userData);    
-                die;
                 if (empty($userData['user_mdp'])) {
                     unset($userData['user_mdp']);
                 }
-// //////////////////////////////////////////////////
+
                 $this->userModel->update(
                     'user_firstname = ?, user_lastname = ?, user_mail = ?, id_role = ?, user_mdp = ?',
                     array_values($userData),
@@ -123,11 +134,11 @@ class ControllerUser
                 );
 
                 header("Location: " . ROOT . "/admin/user");
-                exit(); 
+                exit();
             } else {
                 $user = $this->userModel->selectOne('*', 'id_user = ?', [$id_user]);
                 $roles = $this->roleModel->selectAll();
-                include ROOT . "/admin/Views/edit_user.php"; 
+                include ROOT . "/admin/Views/edit_user.php";
             }
         }
     }
@@ -135,8 +146,8 @@ class ControllerUser
     public function delete($id_user)
     {
         $this->userModel->delete('id_user', $id_user);
-        header("Location: /admin/user"); 
-        exit; 
+        header("Location: /admin/user");
+        exit;
     }
 
     private function validateUserForm($data)
@@ -157,3 +168,4 @@ class ControllerUser
         return empty($errors);
     }
 }
+?>
