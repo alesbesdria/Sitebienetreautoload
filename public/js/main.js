@@ -1,4 +1,13 @@
 
+// Menu Burger
+
+const navshow = document.getElementById("navcolor");
+const nav = document.getElementById("mininav");
+nav.addEventListener('click', show);
+
+function show(){
+    navshow.classList.toggle("navcolorshow");
+}
 
 // Ajouter du CSS sur un bouton au passage de la souris.
 
@@ -38,63 +47,4 @@ $(".entretientitre").on("mouseleave", function() {
 
 /////////////////////
 
-
-
-// Carousel
-// const slidesContainer = document.getElementById("slides-container");
-// const slide = document.querySelector(".slide");
-// const prevButton = document.getElementById("slide-arrow-prev");
-// const nextButton = document.getElementById("slide-arrow-next");
-
-// nextButton.addEventListener("click", () => {
-//   const slideWidth = slide.clientWidth;
-//   slidesContainer.scrollLeft += slideWidth;
-// });
-
-// prevButton.addEventListener("click", () => {
-//   const slideWidth = slide.clientWidth;
-//   slidesContainer.scrollLeft -= slideWidth;
-// });
-const slidesContainer = document.getElementById("slides-container");
-const prevButton = document.getElementById("slide-arrow-prev");
-const nextButton = document.getElementById("slide-arrow-next");
-
-// Tableau des noms d'images à charger
-const imageFiles = [
-  'image1.jpg',
-  'image2.jpg',
-  'image3.jpg',
-  'image4.jpg'
-];
-
-// Fonction pour charger les images
-function loadImages() {
-//   slidesContainer.innerHTML = ''; // Effacer les slides actuelles
-
-  imageFiles.forEach((image) => {
-    const slide = document.createElement('li');
-    slide.classList.add('slide');
-
-    const img = document.createElement('img');
-    img.src = `admin/assets/imagesgalerie/${image}`;
-    img.alt = `Image ${image}`;
-    
-    slide.appendChild(img);
-    slidesContainer.appendChild(slide);
-    console.log(`Image ${index + 1} ajoutée au DOM.`);
-  });
-}
-
-// Appeler la fonction pour charger les images
-loadImages();
-
-// Navigation entre les slides
-nextButton.addEventListener("click", () => {
-  const slideWidth = slidesContainer.querySelector(".slide").clientWidth;
-  slidesContainer.scrollLeft += slideWidth;
-});
-
-prevButton.addEventListener("click", () => {
-  const slideWidth = slidesContainer.querySelector(".slide").clientWidth;
-  slidesContainer.scrollLeft -= slideWidth;
-});
+// CAROUSEL

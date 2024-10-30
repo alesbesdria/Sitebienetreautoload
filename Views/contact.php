@@ -6,33 +6,34 @@
             <div>
                 <label for="nom">Nom</label>
                 <input placeholder="Votre nom" type="text" id="nom" name="nom" required>
+                <div id="nomError" class="error-message"></div> <!-- Message d'erreur -->
             </div>
             <div>
                 <label for="prenom">Prénom</label>
                 <input placeholder="Votre prénom" type="text" id="prenom" name="prenom" required>
+                <div id="prenomError" class="error-message"></div> <!-- Message d'erreur -->
             </div>
         </div>
         <div class="telephone">
             <div>
                 <label for="telephone">Téléphone</label>
-                <input placeholder="0238000102" type="tel" id="telephone" name="telephone"
-                    pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required>
-                <div>
-                    <label for="email">Email</label>
-                    <input placeholder="zzz@zzz.com" type="email" id="email" name="email" required>
-                </div>
+                <input placeholder="0238000102" type="tel" id="telephone" name="telephone" required>
+                <div id="telephoneError" class="error-message"></div> <!-- Message d'erreur -->
+                <label for="email">Email</label>
+                <input placeholder="zzz@zzz.com" type="email" id="email" name="email" required>
+                <div id="emailError" class="error-message"></div> <!-- Message d'erreur -->
             </div>
             <div class="sujet">
                 <div class="sujetmess">
                     <div>
                         <label for="sujet">Sujet</label>
-                        <input placeholder="Sujet du message" type="text" id="sujet"
-                            name="--Objet de votre demande--" required>
+                        <input placeholder="Sujet du message" type="text" id="sujet" name="--Objet de votre demande--" required>
+                        <div id="sujetError" class="error-message"></div> <!-- Message d'erreur -->
                     </div>
                     <div class="message">
                         <label for="message"></label>
-                        <textarea name="message" id="message" cols="30" rows="10"
-                            placeholder="Ecrivez votre message"></textarea>
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrivez votre message"></textarea>
+                        <div id="messageError" class="error-message"></div> <!-- Message d'erreur -->
                     </div>
                 </div>
             </div>

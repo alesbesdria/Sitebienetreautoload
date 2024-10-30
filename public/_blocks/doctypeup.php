@@ -39,39 +39,14 @@ use App\Controllers\ControllerText;
                 </div>
             </div>
         </div>
-        <nav>
-
-
-            <nav>
-                <div class="mininav">
-                    <a href="text/show/20">Mes valeurs</a>
-                    <a class="text1" href="text/show/9">Formations</a>
-                    <a href="text/show/18">Ressources</a>
-                </div>
+        <nav class="navprinc">
+            <nav class="mininav">
+                <a href="text/show/20">Mes valeurs</a>
+                <button id="mininav" class="text1">Formations</button>
+                <a href="text/show/18">Ressources</a>
             </nav>
 
-            <!-- <nav class="mininav">
-                <ul>
-                    <li><a href="text/show/20">Mes valeurs</a></li>
-                    <li><a class="text1" href="text/show/9">Formations</a></li>
-                    <li><a href="text/show/18">Ressources</a></li>
-                </ul>
-            </nav> -->
-
-
-            <!-- <div class="mininav">
-                <a href="text/show/20">
-                    Mes valeurs
-                </a>
-                <a class="text1" href="text/show/9">
-                    Formations
-                </a>
-
-                <a href="?page=18">
-                    Ressources
-                </a>
-            </div> -->
-            <div class="navcolor">
+            <nav class="navcolor" id="navcolor">
                 <div class="navcontent">
                     <a class="entretientitre" href="text/show/9">Entretien motivationnel</a>
                     <a class="grayscale" href="text/show/12">Formation de base</a>
@@ -86,10 +61,29 @@ use App\Controllers\ControllerText;
                 </div>
                 <div class="navcontent">
                     <a class="entretientitre" href="text/show/3">Ateliers spécifiques</a>
-
                 </div>
+            </nav>
+        </nav>
+        <nav class="navcolor" id="navcolors">
+            <div class="navcontent">
+                <a class="entretientitre" href="text/show/9">Entretien motivationnel</a>
+                <a class="grayscale" href="text/show/12">Formation de base</a>
+                <a class="grayscale" href="text/show/10">Formation approfondissement</a>
+                <a class="grayscale" href="text/show/11">Parcours complet</a>
+                <a class="grayscale" href="text/show/13">Supervision</a>
+            </div>
+            <div class="navcontent">
+                <a class="entretientitre" href="text/show/19">Séances individuelles</a>
+                <a class="grayscale" href="text/show/8">Prise de décision</a>
+                <a class="grayscale" href="text/show/6">Changement de comportement</a>
+            </div>
+            <div class="navcontent">
+                <a class="entretientitre" href="text/show/3">Ateliers spécifiques</a>
             </div>
         </nav>
+
+
+
         <div class="logoaccueil">
             <a class="logo" href="text/show/1"><img src="/public/assets/icone/feuilleoiseauorange.png" id="logoaccueuil"
                     alt="logo accueil"></a>

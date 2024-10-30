@@ -14,5 +14,4 @@ class Gallery extends Crud
         parent::__construct();
         $this->table = "pics_gallery";
     }
-
 }

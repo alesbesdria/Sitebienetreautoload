@@ -6,6 +6,7 @@
 
 /* ///////////////////////Gestion des BALISES PRINCIPALES///////////////////////////////// */
 
+
 :root{
     --cinzel: "Cinzel", serif;
     --satisfy: "Satisfy", cursive;
@@ -38,6 +39,10 @@ nav{
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+}
+
+.navprinc{
+    position: relative;
 }
 
 .navcontent > a{
@@ -76,11 +81,6 @@ nav{
     height: 28px;
     width: 100%;
 }
-
-/* a.grayscale :hover{
-    filter: grayscale(60%);
-    transform: scale(1.2);
-} */
 
 .mininav{
     display: none;
@@ -588,6 +588,18 @@ a.textcontact :hover{
         flex-direction: column;
         align-items: center;
     }
+    .navcolor{
+        display: none;
+    }
+
+    .navcolors{
+        position: absolute;
+    }
+
+    .navcolorshow{
+        display: block;
+    }
+
     .mentions{
         width: 100%;
     }
