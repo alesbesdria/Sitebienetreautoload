@@ -37,6 +37,7 @@ class Crud extends pdoclass
         $result->execute($selection);
         return $result->fetch(\PDO::FETCH_OBJ);
     }
+    
     public function selectFirst($objects = '*', $condition = '', $selection = [])
     {
         // n'est pas trouvée

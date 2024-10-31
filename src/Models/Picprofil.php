@@ -1,12 +1,12 @@
 <?php
 
-namespace Admin\Models;
+namespace App\Models;
 
 class Picprofil extends Crud
 {
-    protected $db_idpicprofil;
-    protected $db_namepicprofil;
-    protected $db_contentpicprofil;
+    protected $id;
+    protected $picprofil_name;
+    protected $picprofil_photo;
 
     public function __construct()
     {

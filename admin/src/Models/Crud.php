@@ -66,33 +66,64 @@ class Crud extends pdoclass
 
     public function update($id, array $infos)
     {
-        // je recupere les données des colonnes dans un tableau queryData
+        // Préparation de la requête avec des paramètres dynamiques
         $queryData = [];
         foreach ($infos as $key => $value) {
-            $queryData[] = "$key = :$key"; // nom = :nom, prenom = :prenom
+            $queryData[] = "$key = :$key";
         }
         $queryDataStr = implode(", ", $queryData);
     
-        //!Je prepare ma requette en premier
+        // Prépare la requête
         $req = $this->request->prepare("UPDATE $this->table SET $queryDataStr WHERE id = :id");
     
-        //je cree une boucle foreach pour bind chaque :key a sa value
+        // Liaison des paramètres
         foreach ($infos as $key => $value) {
             $req->bindValue(":$key", $value);
         }
         $req->bindValue(":id", $id);
     
-        //Jexecute ma requette
-        $req->execute();
+        // Exécute et retourne le résultat (true si succès, false sinon)
+        return $req->execute();
     }
 
-    public function delete($idname, $idnbr, $selection = [])
+
+    // public function update($id, array $infos)
+    // {
+    //     // je recupere les données des colonnes dans un tableau queryData
+    //     $queryData = [];
+    //     foreach ($infos as $key => $value) {
+    //         $queryData[] = "$key = :$key"; // nom = :nom, prenom = :prenom
+    //     }
+    //     $queryDataStr = implode(", ", $queryData);
+    
+    //     //!Je prepare ma requette en premier
+    //     $req = $this->request->prepare("UPDATE $this->table SET $queryDataStr WHERE id = :id");
+    
+    //     //je cree une boucle foreach pour bind chaque :key a sa value
+    //     foreach ($infos as $key => $value) {
+    //         $req->bindValue(":$key", $value);
+    //     }
+    //     $req->bindValue(":id", $id);
+    
+    //     //Jexecute ma requette
+    //     $req->execute();
+    // }
+
+    // //////////////////////
+    public function delete($idname, $idnbr)
     {
         $req = "DELETE FROM $this->table WHERE $idname = :idnbr";
         $result = $this->request->prepare($req);
         $result->bindValue(':idnbr', $idnbr, \PDO::PARAM_INT);
-        return $result->execute($selection);
+        return $result->execute();
     }
+    // public function delete($idname, $idnbr, $selection = [])
+    // {
+    //     $req = "DELETE FROM $this->table WHERE $idname = :idnbr";
+    //     $result = $this->request->prepare($req);
+    //     $result->bindValue(':idnbr', $idnbr, \PDO::PARAM_INT);
+    //     return $result->execute($selection);
+    // }
 
     public function search($id)
     {

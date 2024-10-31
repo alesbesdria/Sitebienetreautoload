@@ -1,3 +1,7 @@
+.marge{
+    padding-right: 10px;
+}
+
 .misenform {
     display: flex;
     flex-direction: column;

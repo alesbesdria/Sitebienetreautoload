@@ -14,10 +14,10 @@
             <?php if (!empty($users) && is_array($users)): ?>
                 <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($user->user_firstname); ?></td>
-                        <td><?php echo htmlspecialchars($user->user_lastname); ?></td>
-                        <td><?php echo htmlspecialchars($user->user_mail); ?></td>
-                        <td>
+                        <td class="marge"><?php echo htmlspecialchars($user->user_firstname); ?></td>
+                        <td class="marge"><?php echo htmlspecialchars($user->user_lastname); ?></td>
+                        <td class="marge"><?php echo htmlspecialchars($user->user_mail); ?></td>
+                        <td class="marge">
                             <?php
                             $role = $this->roleModel->selectOne('role_name', 'id_role = ?', [$user->id_role]);
                             echo htmlspecialchars($role->role_name);

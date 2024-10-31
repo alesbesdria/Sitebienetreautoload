@@ -1,10 +1,13 @@
+<a href="/admin/user">Retour en arrière</a>
+
 <h1>Modifier l'utilisateur</h1>
-<?php 
+<?php
 
 // var_dump($user);
 // die;
 
 if ($user): ?>
+
     <form action="" method="POST">
         <div>
             <label for="user_firstname">Prénom :</label>
@@ -31,7 +34,7 @@ if ($user): ?>
             <label for="id_role">Rôle :</label>
             <select name="id_role" id="id_role" required>
                 <?php foreach ($roles as $role): ?>
-                    <option value="<?= $role->id_role ?>" <?= $role->id_role == $user->id_role ? 'selected' : '' ?>>        
+                    <option value="<?= $role->id_role ?>" <?= $role->id_role == $user->id_role ? 'selected' : '' ?>>
                         <?= $role->role_name ?>
                     </option>
                 <?php endforeach; ?>

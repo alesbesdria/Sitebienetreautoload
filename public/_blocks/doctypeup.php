@@ -1,7 +1,5 @@
 <?php
-// require($_SERVER["DOCUMENT_ROOT"] . "/src/Controllers/controlertext.php");
-// require($_SERVER["DOCUMENT_ROOT"] . "/src/Controllers/controlergalerie.php");
-// require($_SERVER["DOCUMENT_ROOT"] . "/src/Controllers/controlervisiteur.php");
+
 use App\Controllers\ControllerText;
 ?>
 
@@ -107,7 +105,7 @@ use App\Controllers\ControllerText;
                         <img class="bubu1" src="/public/assets/icone/bulle1.png" alt="bulle">
                         <img class="bubu2" src="/public/assets/icone/bulle3.png" alt="bulle">
                         <div class="text">
-                            <a href="text/show/20">
+                            <a href="/profil/index">
                                 Mes valeurs
                             </a>
                         </div>
