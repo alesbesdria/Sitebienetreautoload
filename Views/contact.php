@@ -2,11 +2,12 @@
     <section class="formulaire">
         <h2 class="nouscontacter">Nous contacter : <br> <br></h2>
 
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <p style="color: green; font-weight: bold;"><?php echo $_SESSION['success_message']; ?></p>
-        <?php endif; ?>
-
         <div>
+
+            <?php if (!empty($successMessage)): ?>
+                <p style="color: green; font-weight: bold;"><?php echo $successMessage; ?></p>
+            <?php endif; ?>
+
             <div>
                 <label for="nom">Nom</label>
                 <input placeholder="Votre nom" type="text" id="nom" name="nom" required>

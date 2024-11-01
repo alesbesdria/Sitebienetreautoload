@@ -1,22 +1,27 @@
 <?php
+
 namespace App\Controllers;
+
 use App\Models\Contacts;
 use App\Controllers\ControllerVerifs;
 
-class ControllerContacts {
+class ControllerContacts
+{
     private $modelContact;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->modelContact = new Contacts();
     }
 
     public function index()
     {
-        $view = ROOT . "/Views/contact.php"; 
-        include ROOT . "/Views/template.php"; 
+        $view = ROOT . "/Views/contact.php";
+        include ROOT . "/Views/template.php";
     }
 
-    public function submit() {
+    public function submit()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $validator = new ControllerVerifs();
             $nom = $validator->validateName($_POST['nom']);
@@ -24,7 +29,7 @@ class ControllerContacts {
             $telephone = $validator->validateTelephone($_POST['telephone']);
             $email = $validator->validateEmail($_POST['email']);
             $sujet = $validator->validateSujet($_POST['sujet']);
-            $message = $validator->validateMessage($_POST['message']);  
+            $message = $validator->validateMessage($_POST['message']);
 
             if ($validator->isFormValid()) {
                 $data = [
@@ -37,10 +42,7 @@ class ControllerContacts {
                     'visitcontact_message' => $message
                 ];
                 $this->modelContact->create($data);
-                // echo "Le formulaire a été soumis avec succès !";
-                $_SESSION['success_message'] = "Le formulaire a été soumis avec succès !"; // Message de succès
-                header("Location: /contacts"); // Redirection vers la page de contact
-                exit();
+                echo '<script>alert("Le formulaire a été soumis avec succès !"); window.location.href="/contacts";</script>';
             } else {
                 $errors = $validator->getErrors();
                 foreach ($errors as $field => $error) {

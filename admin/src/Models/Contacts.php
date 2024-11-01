@@ -7,11 +7,11 @@ class Contacts extends Crud
 {
 
     protected $id;
-    protected $visitlastname;
+    protected $visitcontact_lastname;
     protected $visitcontact_firstname;
     protected $visitcontact_mail;
-    protected $visitcontact_date; 
     protected $visitcontact_tel;
+    protected $visitcontact_date; 
 
     public function __construct()
     {

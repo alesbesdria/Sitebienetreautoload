@@ -13,12 +13,12 @@
         <tbody>
             <?php foreach ($contacts as $contact): ?>
                 <tr>
-                    <td><?= htmlspecialchars($contact['id']); ?></td>
-                    <td><?= htmlspecialchars($contact['visitlastname']); ?></td>
-                    <td><?= htmlspecialchars($contact['visitcontact_firstname']); ?></td>
-                    <td><?= htmlspecialchars($contact['visitcontact_mail']); ?></td>
-                    <td><?= htmlspecialchars($contact['visitcontact_tel']); ?></td>
-                    <td><?= htmlspecialchars($contact['visitcontact_date']); ?></td>
+                    <td class="marge"><?= htmlspecialchars($contact->id); ?></td>
+                    <td class="marge"><?= htmlspecialchars($contact->visitcontact_lastname); ?></td>
+                    <td class="marge"><?= htmlspecialchars($contact->visitcontact_firstname); ?></td>
+                    <td class="marge"><?= htmlspecialchars($contact->visitcontact_mail); ?></td>
+                    <td class="marge"><?= htmlspecialchars($contact->visitcontact_tel); ?></td>
+                    <td class="marge"><?= htmlspecialchars($contact->visitcontact_date); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
