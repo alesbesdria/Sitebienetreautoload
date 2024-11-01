@@ -1,17 +1,13 @@
 <?php
-
 namespace App\Controllers;
+use App\Models\Contacts;
+use App\Controllers\ControllerVerifs;
 
-use App\Models\Contacts; 
-use App\Controllers\ControllerVerifs; 
-
-class ControllerContacts
-{
+class ControllerContacts {
     private $modelContact;
 
-    public function __construct()
-    {
-        $this->modelContact = new Contacts(); 
+    public function __construct() {
+        $this->modelContact = new Contacts();
     }
 
     public function index()
@@ -20,31 +16,31 @@ class ControllerContacts
         include ROOT . "/Views/template.php"; 
     }
 
-    public function submit()
-    {
+    public function submit() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $validator = new ControllerVerifs(); 
-
+            $validator = new ControllerVerifs();
             $nom = $validator->validateName($_POST['nom']);
             $prenom = $validator->validatePrenom($_POST['prenom']);
             $telephone = $validator->validateTelephone($_POST['telephone']);
             $email = $validator->validateEmail($_POST['email']);
             $sujet = $validator->validateSujet($_POST['sujet']);
-            $message = $validator->validateMessage($_POST['message']);
+            $message = $validator->validateMessage($_POST['message']);  
 
             if ($validator->isFormValid()) {
                 $data = [
-                    'visitlastname' => $nom,
+                    'visitcontact_lastname' => $nom,
                     'visitcontact_firstname' => $prenom,
                     'visitcontact_mail' => $email,
                     'visitcontact_tel' => $telephone,
-                    'visitcontact_date' => date('Y-m-d H:i:s'), 
-                    'visitmessage' => $message
+                    'visitcontact_date' => date('Y-m-d H:i:s'),
+                    'visitcontact_sujet' => $sujet,
+                    'visitcontact_message' => $message
                 ];
-
                 $this->modelContact->create($data);
-
-                echo "Le formulaire a été soumis avec succès !"; 
+                // echo "Le formulaire a été soumis avec succès !";
+                $_SESSION['success_message'] = "Le formulaire a été soumis avec succès !"; // Message de succès
+                header("Location: /contacts"); // Redirection vers la page de contact
+                exit();
             } else {
                 $errors = $validator->getErrors();
                 foreach ($errors as $field => $error) {

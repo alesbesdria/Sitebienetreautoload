@@ -3,7 +3,7 @@
 namespace App\Router;
 
 use App\Controllers\ControllerText;
-use Exception;
+// use Exception;
 
 class Router
 {
@@ -22,11 +22,9 @@ class Router
 
         // Récupérer les paramètres de l'URL
         $params = [];
-        // if (isset($_GET['p']) && !empty($_GET['p'])) {
         $params = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($params);
-        // }
-        // var_dump($params);
+      
         // Si aucun paramètre, charger la page par défaut
         if (empty($params) || !isset($params[0]) || $params[0] == "") {
             $controller = new ControllerText();
@@ -36,7 +34,6 @@ class Router
         // Le premier paramètre correspond au contrôleur
         $controllerName = 'Controller' . ucfirst(array_shift($params));  // Par exemple : "contacts" devient "ControllerContacts"
         $controllerClass = '\\App\\Controllers\\' . $controllerName;  // Namespace complet du contrôleur
-
 
         // Vérifier si le contrôleur existe
         if (!class_exists($controllerClass)) {
@@ -68,3 +65,4 @@ class Router
         }
     }
 }
+

@@ -165,7 +165,7 @@ class ControllerUser
         if (empty($data['user_mdp']) || $data['user_mdp'] != $data['confMdp']) {
             $errors['user_mdp'] = "Les mots de passe ne correspondent pas.";
         }
-        return empty($errors);
+        return empty($errors); 
     }
 }
 ?>

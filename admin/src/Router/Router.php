@@ -3,9 +3,9 @@
 namespace Admin\Router;
 
 use Admin\Controllers\ControllerText;
-use Admin\Controllers\ControllerProfil;
-use Admin\Controllers\ControllerGallery;
-use Admin\Controllers\ControllerUser;
+// use Admin\Controllers\ControllerProfil;
+// use Admin\Controllers\ControllerGallery;
+// use Admin\Controllers\ControllerUser;
 
 
 class Router
