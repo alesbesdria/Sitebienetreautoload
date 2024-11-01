@@ -18,7 +18,6 @@ class ControllerLogin
         $title = "Gestion administrateur";
         $titlesecond = "Connexion";
         $view = ROOT . "/admin/Views/login.php";
-
         include ROOT . "/admin/Views/templatelogin.php";
     }
 

@@ -15,8 +15,6 @@ class pdoclass extends \PDO
 
     private function __construct()
     {
-
-
         $_dsn = "mysql:dbname=" . self::DBNAME . ";host=" . self::DBHOST;
 
         try {
@@ -37,3 +35,6 @@ class pdoclass extends \PDO
         return self::$instance;
     }
 }
+
+
+

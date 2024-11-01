@@ -16,3 +16,4 @@ class Gallery extends Crud
     }
 
 }
+

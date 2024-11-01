@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\Picprofil;
+// use App\Models\Picprofil;
 use App\Models\Texte;
 
 class ControllerProfil
 {
-    protected $picProfilModel;
-    public $imageData;
+    // protected $picProfilModel;
+    // public $imageData;
 
     protected $modelTextValeur;
     public $textTitle;
@@ -16,22 +16,23 @@ class ControllerProfil
 
     public function __construct()
     {
-        $this->picProfilModel = new Picprofil();
+        // $this->picProfilModel = new Picprofil();
         $this->modelTextValeur = new Texte();
     }
 
     public function index()
     {
-        $this->showpic();
+        // $this->showpic();
         $this->showtext();
         $view = ROOT . "/Views/valeurs.php";
         include ROOT . "/Views/template.php";
     }
 
-    public function showpic()
-    {
-        $this->imageData = $this->picProfilModel->selectOne('*')->picprofil_photo;
-    }
+    // public function showpic()
+    // {
+    //     $this->imageData = $this->picProfilModel->selectOne('*')->picprofil_photo;
+
+    // }
 
     public function showtext()
     {

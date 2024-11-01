@@ -1,4 +1,6 @@
-    <form action="user/store" method="POST">
+<a href="/admin/user">Retour en arrière</a>
+
+<form action="store" method="POST">
         <div>
             <label for="user_firstname">Prénom :</label>
             <input type="text" id="user_firstname" name="user_firstname" required>

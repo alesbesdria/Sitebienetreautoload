@@ -1,11 +1,8 @@
 <?php
 
-
 namespace Admin\Models;
 
 use Admin\Models\pdoclass;
-
-
 
 class Crud extends pdoclass
 {
@@ -66,23 +63,19 @@ class Crud extends pdoclass
 
     public function update($id, array $infos)
     {
-        // Préparation de la requête avec des paramètres dynamiques
         $queryData = [];
         foreach ($infos as $key => $value) {
             $queryData[] = "$key = :$key";
         }
         $queryDataStr = implode(", ", $queryData);
     
-        // Prépare la requête
         $req = $this->request->prepare("UPDATE $this->table SET $queryDataStr WHERE id = :id");
     
-        // Liaison des paramètres
         foreach ($infos as $key => $value) {
             $req->bindValue(":$key", $value);
         }
         $req->bindValue(":id", $id);
     
-        // Exécute et retourne le résultat (true si succès, false sinon)
         return $req->execute();
     }
 
