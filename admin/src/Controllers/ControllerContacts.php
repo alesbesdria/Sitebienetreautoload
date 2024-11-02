@@ -1,4 +1,5 @@
 <?php
+
 namespace Admin\Controllers;
 
 use Admin\Models\Contacts;
@@ -17,10 +18,8 @@ class ControllerContacts
 
         $title = "Gestion administrateur";
         $titlesecond = "Liste des contacts";
-        $contacts = $this->modelcontact->selectAll();
+        $contacts = $this->modelcontact->selectAll('*', "1 ORDER BY visitcontact_date ASC");
         $view = ROOT . "/admin/Views/listecontacts.php";
         include ROOT . "/admin/views/template.php";
-
     }
-    
 }
