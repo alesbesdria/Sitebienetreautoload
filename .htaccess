@@ -13,3 +13,5 @@ RewriteRule ^admin/(.*)$ Admin/index.php?url=$1 [QSA,L]
 # Redirection des autres URLs vers index.php pour les traiter via le routeur
 RewriteCond %{REQUEST_URI} !^/admin
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+

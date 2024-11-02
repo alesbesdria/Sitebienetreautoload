@@ -4,10 +4,6 @@
 
         <div>
 
-            <?php if (!empty($successMessage)): ?>
-                <p style="color: green; font-weight: bold;"><?php echo $successMessage; ?></p>
-            <?php endif; ?>
-
             <div>
                 <label for="nom">Nom</label>
                 <input placeholder="Votre nom" type="text" id="nom" name="nom" required>

@@ -5,8 +5,6 @@ namespace App\Models;
 
 use Admin\Models\pdoclass;
 
-
-
 class Crud extends pdoclass
 {
     protected $request;
@@ -47,20 +45,22 @@ class Crud extends pdoclass
         return $result->fetch(\PDO::FETCH_OBJ);
     }
 
+    //tableau associatif
     public function insert(array $infos)
     {
-        // je recupere les données des colonnes dans des tableau keys et placeholders
         $keys = implode(", ", array_keys($infos));
+        // permet d'extraire les clés(colonne) du tableau et les séparent d'une virgule
         $placeholders = ":" . implode(", :", array_keys($infos));
+        // lie les valeurs pour le bindvalue
 
-        //!Je prepare ma requette en premier
+        //!Je prepare ma requête en premier
         $req = $this->request->prepare("INSERT INTO $this->table ($keys) VALUES ($placeholders)");
 
-        //je cree une boucle foreach pour bind chaque :key a sa value
+        //je cree une boucle foreach pour bind chaque :key à sa value
         foreach ($infos as $key => $value) {
             $req->bindValue(":$key", $value);
         }
-        //Jexecute ma requette
+        //J'execute ma requête
         $req->execute();
         return $this->request->lastInsertId();
     }
