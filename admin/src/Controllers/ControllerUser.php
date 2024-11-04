@@ -18,12 +18,20 @@ class ControllerUser
 
     public function index()
     {
-        $title = "Gestion administrateur";
-        $titlesecond = "Liste utilisateurs";
-
-        $users = $this->userModel->selectAll();
-        $view = ROOT . "/admin/Views/user.php";
-        include ROOT . "/admin/Views/template.php";
+        if (!isset($_SESSION['auth'])) {
+            header("Location: /admin/login");
+            exit();
+        }
+        if (isset($_SESSION)) {
+            $title = "Gestion administrateur";
+            $titlesecond = "Liste utilisateurs";
+            $users = $this->userModel->selectAll();
+            $view = ROOT . "/admin/Views/user.php";
+            include ROOT . "/admin/Views/template.php";
+        } else {
+            $view = ROOT . "/admin/Views/login.php";
+            include ROOT . "/admin/Views/templatelogin.php";
+        }
     }
 
     public function create()
@@ -48,33 +56,33 @@ class ControllerUser
             include ROOT . "/admin/Views/template.php";
             return;
         }
-    
+
         // Valider les autres champs du formulaire
         if ($this->validateUserForm($userData)) {
             // Liste des colonnes à insérer et des valeurs correspondantes
             $columns = ['user_firstname', 'user_lastname', 'user_mail', 'id_role', 'user_mdp'];
             $insertData = [];
-    
+
             foreach ($columns as $column) {
                 // Ajouter chaque donnée au tableau, en vérifiant si c'est le mot de passe pour le hashage
-                $insertData[$column] = ($column === 'user_mdp') 
+                $insertData[$column] = ($column === 'user_mdp')
                     ? password_hash($userData[$column], PASSWORD_BCRYPT)
                     : $userData[$column];
             }
-    
+
             // Appeler insert pour insérer dans la base de données
             $this->userModel->insert(
                 array_keys($insertData),   // Noms des colonnes
                 array_values($insertData)  // Valeurs correspondantes
             );
-    
+
             // Redirection après l'insertion réussie
-            header("Location: /admin/user/index"); 
-            exit; 
+            header("Location: /admin/user/index");
+            exit;
         } else {
             // Si la validation échoue, réafficher le formulaire avec les erreurs
             $roles = $this->roleModel->selectAll();
-            $view = ROOT . "/admin/Views/insert_user.php"; 
+            $view = ROOT . "/admin/Views/insert_user.php";
             include ROOT . "/admin/Views/template.php";
         }
     }
@@ -168,4 +176,3 @@ class ControllerUser
         return empty($errors);
     }
 }
-?>

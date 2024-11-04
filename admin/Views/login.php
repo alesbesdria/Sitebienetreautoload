@@ -1,5 +1,5 @@
 <h1>Connexion</h1>
-    <form action="/admin/user" method="POST">
+    <form action="/admin/login" method="POST">
         <div>
             <label for="user_mail">Email :</label>
             <input type="email" id="user_mail" name="user_mail" required>
