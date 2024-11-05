@@ -3,32 +3,34 @@
         <h2 class="nouscontacter">Nous contacter : <br> <br></h2>
 
         <div>
-
+        <?php if (isset($error)): ?>
+            <p style="color:red;"><?= $error ?></p>
+        <?php endif; ?>
             <div>
                 <label for="nom">Nom</label>
-                <input placeholder="Votre nom" type="text" id="nom" name="nom" required>
+                <input placeholder="Votre nom" type="text" id="nom" name="nom" >
                 <div id="nomError" class="error-message"></div>
             </div>
             <div>
                 <label for="prenom">Prénom</label>
-                <input placeholder="Votre prénom" type="text" id="prenom" name="prenom" required>
+                <input placeholder="Votre prénom" type="text" id="prenom" name="prenom" >
                 <div id="prenomError" class="error-message"></div>
             </div>
         </div>
         <div class="telephone">
             <div>
                 <label for="telephone">Téléphone</label>
-                <input placeholder="0238000102" type="tel" id="telephone" name="telephone" required>
+                <input placeholder="0238000102" type="tel" id="telephone" name="telephone" >
                 <div id="telephoneError" class="error-message"></div>
                 <label for="email">Email</label>
-                <input placeholder="zzz@zzz.com" type="email" id="email" name="email" required>
+                <input placeholder="zzz@zzz.com" type="email" id="email" name="email" >
                 <div id="emailError" class="error-message"></div>
             </div>
             <div class="sujet">
                 <div class="sujetmess">
                     <div>
                         <label for="sujet">Sujet</label>
-                        <input placeholder="Sujet du message" type="text" id="sujet" name="sujet" required>
+                        <input placeholder="Sujet du message" type="text" id="sujet" name="sujet" >
                         <div id="sujetError" class="error-message"></div>
                     </div>
                     <div class="message">

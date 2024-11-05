@@ -47,6 +47,8 @@ class ControllerContacts
                 $errors = $validator->getErrors();
                 foreach ($errors as $field => $error) {
                     echo "<p>Erreur dans le champ $field : $error</p>";
+                    $view = ROOT . "/Views/contact.php";
+                    include ROOT . "/Views/template.php";
                 }
             }
         }

@@ -33,10 +33,6 @@ class ControllerText
             $titre = $texte->getTitre();
             $contenu = $texte->getContenu();
             $view = ROOT . "/Views/publiccontent.php";
-
-            // Vérifiez que les variables sont correctement assignées
-
-
             require_once ROOT . "/Views/template.php";
         } else {
             echo "Texte non trouvé.";
