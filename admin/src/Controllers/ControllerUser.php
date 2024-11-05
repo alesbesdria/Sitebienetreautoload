@@ -19,10 +19,14 @@ class ControllerUser
     public function index()
     {
         if (!isset($_SESSION['auth'])) {
+            $_SESSION['error'] = "Accès refusé";
             header("Location: /admin/login");
             exit();
         }
+        
         if (isset($_SESSION)) {
+        var_dump($_SESSION);
+
             $title = "Gestion administrateur";
             $titlesecond = "Liste utilisateurs";
             $users = $this->userModel->selectAll();

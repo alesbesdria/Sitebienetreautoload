@@ -20,6 +20,11 @@ class ControllerLogin
         $titlesecond = "Connexion";
         $view = ROOT . "/admin/Views/login.php";
 
+        if (isset($_SESSION['error'])) {
+            $error = $_SESSION['error'];
+            unset($_SESSION['error']);
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $this->userModel->selectOne('*', 'user_mail = ?', [$_POST['user_mail']]);
 
