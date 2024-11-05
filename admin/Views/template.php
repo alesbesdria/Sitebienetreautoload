@@ -1,4 +1,3 @@
-
 <?php
 
 include ROOT . "/admin/_blocks/doctype.php";
@@ -8,6 +7,8 @@ include ROOT . "/admin/_blocks/doctype.php";
     <div class="logout-container">
         <form action="/admin/login/logout" method="POST">
             <button type="submit" class="btn-logout">Déconnexion</button>
+            <!-- <a href="/admin/login/logout" type="submit" class="btn-logout">Déconnexion</a> -->
+
         </form>
     </div>
 
@@ -41,5 +42,3 @@ include ROOT . "/admin/_blocks/doctype.php";
 </body>
 
 </html>
-
-
