@@ -23,9 +23,9 @@ class ControllerUser
             header("Location: /admin/login");
             exit();
         }
-        
+
         if (isset($_SESSION)) {
-        var_dump($_SESSION);
+            var_dump($_SESSION);
 
             $title = "Gestion administrateur";
             $titlesecond = "Liste utilisateurs";
@@ -69,16 +69,12 @@ class ControllerUser
 
             foreach ($columns as $column) {
                 // Ajouter chaque donnée au tableau, en vérifiant si c'est le mot de passe pour le hashage
-                $insertData[$column] = ($column === 'user_mdp')
-                    ? password_hash($userData[$column], PASSWORD_BCRYPT)
-                    : $userData[$column];
+
+                $insertData[$column] = ($column === 'user_mdp') ? password_hash($userData[$column], PASSWORD_BCRYPT) : $userData[$column];
             }
 
             // Appeler insert pour insérer dans la base de données
-            $this->userModel->insert(
-                array_keys($insertData),   // Noms des colonnes
-                array_values($insertData)  // Valeurs correspondantes
-            );
+            $this->userModel->insert($insertData);
 
             // Redirection après l'insertion réussie
             header("Location: /admin/user/index");
@@ -165,6 +161,8 @@ class ControllerUser
     private function validateUserForm($data)
     {
         $errors = [];
+        $data['user_firstname'] = htmlspecialchars($data['user_firstname']);
+        $data['user_lastname'] = htmlspecialchars($data['user_lastname']);
         if (empty($data['user_firstname']) || !preg_match('/^[a-zA-Z ]+$/', $data['user_firstname'])) {
             $errors['user_firstname'] = "Le prénom n'est pas valide.";
         }

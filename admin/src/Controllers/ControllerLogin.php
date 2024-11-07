@@ -20,9 +20,7 @@ class ControllerLogin
         $titlesecond = "Connexion";
         $view = ROOT . "/admin/Views/login.php";
 
-        // if (isset($_SESSION['auth'])) {
-        //     header("Location: /admin/user");
-        // }
+
 
         if (isset($_SESSION['error'])) {
             $error = $_SESSION['error'];
@@ -30,6 +28,7 @@ class ControllerLogin
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             $user = $this->userModel->selectOne('*', 'user_mail = ?', [$_POST['user_mail']]);
 
             if ($user && password_verify($_POST['user_mdp'], $user->user_mdp)) {
@@ -44,7 +43,6 @@ class ControllerLogin
 
     public function logout()
     {
-        session_start();
         unset($_SESSION['auth']);
         session_destroy();
         header("Location: /admin/login");

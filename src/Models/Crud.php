@@ -35,7 +35,7 @@ class Crud extends pdoclass
         $result->execute($selection);
         return $result->fetch(\PDO::FETCH_OBJ);
     }
-    
+
     public function selectFirst($objects = '*', $condition = '', $selection = [])
     {
         // n'est pas trouvée
@@ -53,7 +53,7 @@ class Crud extends pdoclass
         $placeholders = ":" . implode(", :", array_keys($infos));
         // lie les valeurs pour le bindvalue
 
-        //!Je prepare ma requête en premier
+        //!Je prepare ma requête
         $req = $this->request->prepare("INSERT INTO $this->table ($keys) VALUES ($placeholders)");
 
         //je cree une boucle foreach pour bind chaque :key à sa value
@@ -62,7 +62,6 @@ class Crud extends pdoclass
         }
         //J'execute ma requête
         $req->execute();
-        return $this->request->lastInsertId();
     }
 
     public function update($id, array $infos)
@@ -73,16 +72,16 @@ class Crud extends pdoclass
             $queryData[] = "$key = :$key"; // nom = :nom, prenom = :prenom
         }
         $queryDataStr = implode(", ", $queryData);
-    
+
         //!Je prepare ma requette en premier
         $req = $this->request->prepare("UPDATE $this->table SET $queryDataStr WHERE id = :id");
-    
+
         //je cree une boucle foreach pour bind chaque :key a sa value
         foreach ($infos as $key => $value) {
             $req->bindValue(":$key", $value);
         }
         $req->bindValue(":id", $id);
-    
+
         //Jexecute ma requette
         $req->execute();
     }

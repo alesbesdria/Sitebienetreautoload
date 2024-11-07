@@ -49,16 +49,15 @@ class Crud extends pdoclass
         $keys = implode(", ", array_keys($infos));
         $placeholders = ":" . implode(", :", array_keys($infos));
 
-        //Je prepare ma requette en premier
+        //Je prepare ma requête en premier
         $req = $this->request->prepare("INSERT INTO $this->table ($keys) VALUES ($placeholders)");
 
-        //je cree une boucle foreach pour bind chaque :key a sa value
+        //je cree une boucle foreach pour bind chaque :key à sa value
         foreach ($infos as $key => $value) {
             $req->bindValue(":$key", $value);
         }
-        //Jexecute ma requette
+        //J'éxecute ma requête
         $req->execute();
-        return $this->request->lastInsertId();
     }
 
     public function update($id, array $infos)
@@ -72,7 +71,7 @@ class Crud extends pdoclass
         // Je transforme le tableau en une chaîne de caractères séparée par des virgules
         $tabstrData = implode(", ", $tabData);
 
-        // je prépare ma requ^te
+        // je prépare ma requête
         $req = $this->request->prepare("UPDATE $this->table SET $tabstrData WHERE id = :id");
 
         //je lie chaque clés aux valeurs passées dans le tableau
