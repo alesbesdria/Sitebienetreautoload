@@ -1,3 +1,5 @@
+
+
 <div class="contourphoto">
     <div class="photocadre">
         <?php
@@ -6,5 +8,7 @@
     </div>
     <div class="prenom" id="prenom">Stéphanie<br>Chantôme</div>
 </div>
-    <h1><?= htmlspecialchars($this->textTitle); ?></h1>
-    <p><?= nl2br(htmlspecialchars($this->textContent)); ?></p>
+<h1><?= $this->textTitle; ?></h1>
+<p><?= nl2br($this->textContent); ?></p>
+
+

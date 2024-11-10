@@ -38,11 +38,38 @@ use App\Controllers\ControllerText;
             </div>
         </div>
         <nav class="navprinc">
+
             <nav class="mininav">
                 <a href="text/show/20">Mes valeurs</a>
                 <button id="mininav" class="text1">Formations</button>
                 <a href="text/show/18">Ressources</a>
             </nav>
+
+            <!-- <nav class="mininav">
+                <ul>
+                    <li><a href="text/show/20">Mes valeurs</a></li>
+                    <li><button id="mininav" class="text1">Formations</button></li>
+                    <li><a href="text/show/18">Ressources</a></li>
+                </ul>
+            </nav>
+
+            <nav class="navcolor" id="navcolors">
+                <ul class="navcontent">
+                    <li><a class="entretientitre" href="text/show/9">Entretien motivationnel</a></li>
+                    <li><a class="grayscale" href="text/show/12">Formation de base</a></li>
+                    <li><a class="grayscale" href="text/show/10">Formation approfondissement</a></li>
+                    <li><a class="grayscale" href="text/show/11">Parcours complet</a></li>
+                    <li><a class="grayscale" href="text/show/13">Supervision</a></li>
+                </ul>
+                <ul class="navcontent">
+                    <li><a class="entretientitre" href="text/show/19">Séances individuelles</a></li>
+                    <li><a class="grayscale" href="text/show/8">Prise de décision</a></li>
+                    <li><a class="grayscale" href="text/show/6">Changement de comportement</a></li>
+                </ul>
+                <ul class="navcontent">
+                    <li><a class="entretientitre" href="text/show/3">Ateliers spécifiques</a></li>
+                </ul>
+            </nav> -->
 
             <nav class="navcolor" id="navcolor">
                 <div class="navcontent">
@@ -61,23 +88,6 @@ use App\Controllers\ControllerText;
                     <a class="entretientitre" href="text/show/3">Ateliers spécifiques</a>
                 </div>
             </nav>
-        </nav>
-        <nav class="navcolor" id="navcolors">
-            <div class="navcontent">
-                <a class="entretientitre" href="text/show/9">Entretien motivationnel</a>
-                <a class="grayscale" href="text/show/12">Formation de base</a>
-                <a class="grayscale" href="text/show/10">Formation approfondissement</a>
-                <a class="grayscale" href="text/show/11">Parcours complet</a>
-                <a class="grayscale" href="text/show/13">Supervision</a>
-            </div>
-            <div class="navcontent">
-                <a class="entretientitre" href="text/show/19">Séances individuelles</a>
-                <a class="grayscale" href="text/show/8">Prise de décision</a>
-                <a class="grayscale" href="text/show/6">Changement de comportement</a>
-            </div>
-            <div class="navcontent">
-                <a class="entretientitre" href="text/show/3">Ateliers spécifiques</a>
-            </div>
         </nav>
 
 

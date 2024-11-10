@@ -8,31 +8,31 @@
 
 if ($user): ?>
 
-    <form action="" method="POST">
+    <form action="/admin/user/update" method="POST">
         <div>
             <label for="user_firstname">Prénom :</label>
-            <input type="text" id="user_firstname" name="user_firstname" value="<?= $user->user_firstname ?>" required>
+            <input type="text" id="user_firstname" name="user_firstname" value="<?= $user->user_firstname ?>" >
             <?php if (isset($errors['user_firstname'])): ?>
                 <span style="color:red;"><?= $errors['user_firstname'] ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="user_lastname">Nom :</label>
-            <input type="text" id="user_lastname" name="user_lastname" value="<?= $user->user_lastname ?>" required>
+            <input type="text" id="user_lastname" name="user_lastname" value="<?= $user->user_lastname ?>" >
             <?php if (isset($errors['user_lastname'])): ?>
                 <span style="color:red;"><?= $errors['user_lastname'] ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="user_mail">Email :</label>
-            <input type="email" id="user_mail" name="user_mail" value="<?= $user->user_mail ?>" required>
+            <input type="email" id="user_mail" name="user_mail" value="<?= $user->user_mail ?>" >
             <?php if (isset($errors['user_mail'])): ?>
                 <span style="color:red;"><?= $errors['user_mail'] ?></span>
             <?php endif; ?>
         </div>
         <div>
             <label for="id_role">Rôle :</label>
-            <select name="id_role" id="id_role" required>
+            <select name="id_role" id="id_role" >
                 <?php foreach ($roles as $role): ?>
                     <option value="<?= $role->id_role ?>" <?= $role->id_role == $user->id_role ? 'selected' : '' ?>>
                         <?= $role->role_name ?>

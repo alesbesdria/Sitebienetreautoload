@@ -14,6 +14,7 @@
     --white: #ffffff;
     --green: #37555a;
     --pink: #ac7d77;
+    --grey: #494949;
 }
 
 .exemple{
@@ -116,10 +117,10 @@ header, footer{
 }
 
 footer {
-    font-family: "Cinzel", serif;
+    font-family: var(--cinzel);
     display: flex;
     justify-content: space-around;
-    background: rgba(255, 255, 255, 0.30);
+    background: #ffffff4d;
     position: absolute;
     bottom: 0px;
 }
@@ -134,7 +135,7 @@ footer > a{
 
 .contourphoto{
     margin-top: 20px;
-    background-color: #000000;
+    background-color: var(--black);
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -150,7 +151,7 @@ footer > a{
     overflow: hidden;
 }
 .photo{
-    color: #494949;
+    color: var(--grey);
     filter: grayscale(1);
     height: 150px;
     width: 100px;
@@ -160,11 +161,11 @@ footer > a{
 
 .prenom{
     color: white;
-    font-family: "Satisfy", cursive;
+    font-family: var(--satisfy);
 }
 
 .etp{
-    font-family: "Satisfy", cursive;
+    font-family: var(--satisfy);
     display: flex;
     justify-content: start;
     width: 30%;
@@ -399,30 +400,30 @@ a.entretientitre{
 }
 
 
-
 /* ///////////////////////////////////////////////////////////////////////// */
-
-
-
+                                /* CONTACT FEUILLE */
 /* ///////////////////////////////////////////////////////////////////////// */
 
 img.birdfeuille {
-    opacity: 0.8;
-    height: 130px;
-    z-index: 1;
-    position: absolute;
-    right: 20px;
-    bottom: 45px;
-    filter: drop-shadow(10px 5px 5px black);
+    opacity: 0.8; /* Ajoute une trasnparence de 80% d'opacité */
+    height: 130px; /* Définit la hauteur à 130 pixels */
+    z-index: 1; /* Place l'image en dessous du texte écrire */
+    position: absolute; /* Positionne l'image d'une façon' absolue*/
+    right: 20px; /* Positionne l'image*/
+    bottom: 45px; /* Positionne l'image*/
+    filter: drop-shadow(10px 5px 5px black); /* Ajoute del'ombre */
 }
 
-.ecrire{
-    color: rgb(55, 85, 90);
-    z-index: 2;
-    position: absolute;
-    right:4px;
-    bottom: 77px;
+.ecrire {
+    color: var(--black); /* Couleur du texte*/
+    z-index: 2; /* Place le texte au-dessus de l'image birdfeuille */
+    position: absolute; /* Positionne le texte d'une façon' absolue*/
+    right: 4px; /* Positionne le texte */
+    bottom: 77px; /* Positionne le texte*/
 }
+
+
+
 
 .logocontact> img{
     width: 38px;
@@ -523,21 +524,21 @@ a.textcontact :hover{
                                 /* Gestion du FOOTER */
 /* ///////////////////////////////////////////////////////////////////////// */
 
-.mentions{
-    width: 90%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.mentions {
+    width: 90%; /* La classe mentions prend 90% de la largeur */
+    display: flex; /* Disposition en flexbox */
+    justify-content: space-around; /* Espace les éléments */
+    align-items: center; /* Centre les éléments verticalement */
 }
 
-.mentions >a{
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
+.mentions > a { /*Gestion des liens contenus dans mentions*/
+    text-decoration: none; /* Supprime le soulignement de texte */
+    color: var(--black); /* Définit la couleur du texte en noir */
+    display: flex; /* Disposition en flexbox */
+    justify-content: center; /* Centre le texte horizontalement */
+    font-size: 16px; /* Taille de la police à 16px */
+    font-weight: bold; /* Met le texte en gras */
+    text-align: center; /* Centre le texte à l'intérieur du lien */
 }
 
 /* ////////////////////////////////////////////////////////////////////// */

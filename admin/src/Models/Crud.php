@@ -115,22 +115,3 @@ class Crud extends pdoclass
 
 
 
-
-
-// public function insert($columnname, $newdata)
-//     {
-//         $columns = implode(', ', $columnname);
-//         $placeholders = implode(', ', array_fill(0, count($newdata), '?'));
-//         $req = "INSERT INTO $this->table ($columns) VALUES ($placeholders)";
-//         $result = $this->request->prepare($req);
-//         return $result->execute($newdata);
-//     }
-
-//     public function update($columnname, $newdata, $idname, $idnbr, $selection = [])
-//     {
-//         $req = "UPDATE $this->table SET $columnname = ? WHERE $idname = ?";
-//         $result = $this->request->prepare($req);
-
-//         $params = array_merge([$newdata, $idnbr], $selection);
-//         return $result->execute($params);
-//     }

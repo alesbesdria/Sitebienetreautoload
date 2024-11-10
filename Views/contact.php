@@ -4,7 +4,7 @@
 
         <div>
         <?php if (isset($error)): ?>
-            <p style="color:red;"><?= $error ?></p>
+            <p style="color:red; font-weight: bold;"><?= $error ?></p>
         <?php endif; ?>
             <div>
                 <label for="nom">Nom</label>

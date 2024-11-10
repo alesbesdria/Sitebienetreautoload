@@ -69,18 +69,25 @@ class ControllerGallery
             if (isset($_FILES['imageGallery']) && $_FILES['imageGallery']['error'] == 0) {
 
                 $fileInfo = pathinfo($_FILES['imageGallery']['name']);
+                // returne le nom du fichier téléchargé 
                 $extension = strtolower($fileInfo['extension']);
+                // convertit les extensions en minuscules au besoin
 
                 if (in_array($extension, $this->extensions)) {
                     $imageMixName = time() . uniqid();
                     $imageNewName = $imageMixName . "." . $extension;
                     $fileRegister = $this->folderGallery . $imageNewName;
+                    // Modifie l nom y ajoute l'extension, 
+                    // et rajoute la photo dans le répertoire
 
                     $insertPhotoGallery = $this->picsGalleryModel->insert([
                         'picgallery_name' => $imageNewName
                     ]);
+                    // le rajoute également à la base de données
 
                     if ($insertPhotoGallery && move_uploaded_file($_FILES['imageGallery']['tmp_name'], $fileRegister)) {
+                        // verifie si l'insert et si le déplacement du fichier temporaire vers un permanant
+                        // se sont bien passés.
                         echo "Photo ajoutée avec succès.";
                     } else {
                         echo "Erreur lors du déplacement de l'image.";
@@ -124,40 +131,6 @@ class ControllerGallery
         }
     }
 
-    // public function modifyImage()
-    // {
-    //     if (isset($_POST['modifyImageGallery']) && isset($_FILES['newImageGallery']) && $_FILES['newImageGallery']['error'] == 0) {
-    //         $fileInfo = pathinfo($_FILES['newImageGallery']['name']);
-    //         $extension = strtolower($fileInfo['extension']);
-
-    //         if (in_array($extension, $this->extensions)) {
-    //             $imageMixName = time() . uniqid();
-    //             $imageNewName = $imageMixName . "." . $extension;
-    //             $fileRegister = $this->folderGallery . $imageNewName;
-
-    //             $photoId = $_POST['photoId'];
-    //             $oldImageName = $_POST['oldImageName'];
-
-    //             // Utiliser la méthode update avec un tableau de données
-    //             $updatePhoto = $this->picsGalleryModel->update($photoId, [
-    //                 'picgallery_name' => $imageNewName
-    //             ]);
-
-    //             if ($updatePhoto && move_uploaded_file($_FILES['newImageGallery']['tmp_name'], $fileRegister)) {
-    //                 // Suppression de l'ancienne image du dossier
-    //                 unlink($this->folderGallery . $oldImageName); 
-    //                 echo "Image modifiée avec succès.";
-    //             } else {
-    //                 echo "Erreur lors de la mise à jour de l'image.";
-    //             }
-    //         } else {
-    //             echo "Extension non autorisée.";
-    //         }
-    //     }
-    // }
-
-    // /////////////////////////
-
     public function deleteImage()
     {
         if (isset($_POST['supprImageGallery'])) {
@@ -172,18 +145,4 @@ class ControllerGallery
             echo "L'image a été supprimée avec succès.";
         }
     }
-
-    // public function deleteImage()
-    // {
-    //     if (isset($_POST['supprImageGallery'])) {
-    //         $photoId = $_POST['photoId'];
-    //         $photoName = $_POST['photoName'];
-
-    //         $deletePhotoDb = $this->picsGalleryModel->delete('id', $photoId);
-    //         $deletePhotoFolder = $this->folderGallery . $photoName;
-    //         unlink($deletePhotoFolder);
-
-    //         echo "L'image a été supprimée avec succès.";
-    //     }
-    // }
 }

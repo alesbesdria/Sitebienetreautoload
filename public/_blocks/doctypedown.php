@@ -12,16 +12,17 @@
         <div class="contact">
 
             <img class="birdfeuille" src="/public/assets/icone/feuille_automne.png" alt="contactez nous image feuille automnale">
-
             <div class="ecrire">
                 <a class="textcontact" href="/contacts/index">Contactez-moi !</a>
                 <a class="logocontact" href="/contacts/index"><img src="/public/assets/icone/plume.png" alt="contactez nous image crayon plume"
                         id="contact"></a>
             </div>
+            
         </div>
     </div>
 </div>
 </main>
+
 <footer>
     <div class="mentions">
         <a href="text/show/15">Mentions légales</a>
@@ -35,6 +36,7 @@
                 id="linkedin"></a>
     </div>
 </footer>
+
 <script src="/public/js/main.js"></script>
 </body>
 

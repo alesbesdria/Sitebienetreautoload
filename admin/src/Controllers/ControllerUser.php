@@ -134,12 +134,7 @@ class ControllerUser
                     unset($userData['user_mdp']);
                 }
 
-                $this->userModel->update(
-                    'user_firstname = ?, user_lastname = ?, user_mail = ?, id_role = ?, user_mdp = ?',
-                    array_values($userData),
-                    'id_user',
-                    $userId
-                );
+               $this->userModel->update($userId, $userData);
 
                 header("Location: " . ROOT . "/admin/user");
                 exit();
