@@ -1,6 +1,6 @@
 <form class="form" action="/contacts/submit" method="POST">
     <section class="formulaire">
-        <h2 class="nouscontacter">Nous contacter : <br> <br></h2>
+        <h2 class="nouscontacter">Nous contacter : <br></h2>
 
         <div>
         <?php if (isset($error)): ?>
@@ -8,12 +8,12 @@
         <?php endif; ?>
             <div>
                 <label for="nom">Nom</label>
-                <input placeholder="Votre nom" type="text" id="nom" name="nom" >
+                <input placeholder="Votre nom" type="text" id="nom" name="nom" required>
                 <div id="nomError" class="error-message"></div>
             </div>
             <div>
                 <label for="prenom">Prénom</label>
-                <input placeholder="Votre prénom" type="text" id="prenom" name="prenom" >
+                <input placeholder="Votre prénom" type="text" id="prenom" name="prenom" required>
                 <div id="prenomError" class="error-message"></div>
             </div>
         </div>

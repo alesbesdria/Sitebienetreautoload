@@ -476,22 +476,7 @@ a.textcontact :hover{
     text-decoration: underline;
 }
 
-/* //////////////////////////////// Formulaire de contact ///////////////////////////////////////// */
 
-.form{
-    color: white;
-    display: flex;
-    justify-content: center;
-}
-
-.formulaire{
-    background-image: url(/public/assets/image/zen.jpg);
-    background-size: cover;
-    height: 350px;
-    padding: 20px;
-    font-family: "Cinzel", serif;
-    border-radius: 50px;
-    box-shadow: 2px 2px 15px black;
 }
 
 /* ///////////////////////////////// PAGE Connexion //////////////////////////////////////// */
@@ -596,10 +581,34 @@ a.textcontact :hover{
         flex-direction: column;
     }
     footer{
-        position: relative;
-        margin-bottom: 0;
+        position: absolute;
+        bottom: 0;
         flex-direction: column;
         align-items: center;
+    }
+    button#mininav {
+        border: 2px solid #226251;
+        color: white;
+        margin-bottom: 5px;
+        font-family: "Cinzel", serif;
+        font-weight: bold;
+        box-shadow: 5px 5px 5px black;
+        padding: 5px;
+        align-content: center;
+        height: 35px;
+        width: 118px;
+        text-decoration: none;
+        background: rgb(107, 191, 168);
+        background: radial-gradient(circle, rgba(107, 191, 168, 1) 40%, rgba(4, 168, 124, 1) 100%);
+        margin-right: 8px;
+        border-radius: 20px;
+    }
+    body{
+        background-image: url(/public/assets/image/stonezenmobile.png);
+    }
+
+    .form{
+        width: 100%;
     }
     .navcolor{
         display: none;
@@ -723,7 +732,7 @@ a.textcontact :hover{
         margin-bottom: 2px;
     }
     .form{
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -959,3 +968,144 @@ a.textcontact :hover{
   #slide-arrow-next {
     right: 10px;
   }
+
+  /* //////////////////////////////// Formulaire de contact ///////////////////////////////////////// */
+
+
+
+.message{
+    margin-top: 5px;
+}
+
+.form{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.formulaire{
+    overflow: hidden;
+    background-image: url(/public/assets/image/zen.jpg);
+    background-size: cover;
+    height: 350px;
+    padding: 20px;
+    font-family: "Cinzel", serif;
+    border-radius: 50px;
+    box-shadow: 2px 2px 15px black;
+}
+.formulaire {
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    color: #fff;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+}
+
+.nouscontacter {
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 5px 0; /* Marge nulle en haut et marge de 10px en bas */
+}
+
+.formulaire div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Réduit l'espacement entre les sections */
+}
+
+.formulaire label {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 3px;
+    font-size: 13px;
+}
+
+.formulaire input[type="text"],
+.formulaire input[type="email"],
+.formulaire input[type="tel"],
+.formulaire textarea {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(17, 67, 54, 0.5);
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulaire input[type="text"]:focus,
+.formulaire input[type="email"]:focus,
+.formulaire input[type="tel"]:focus,
+.formulaire textarea:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.formulaire input::placeholder,
+.formulaire textarea::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 3px;
+    font-style: italic;
+}
+
+.envoyer .button button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+#submit {
+    background-color: #2c94d5;
+}
+
+#submit:hover {
+    background-color: #034a76;
+}
+
+#reset {
+    background-color: #dc3545;
+}
+
+#reset:hover {
+    background-color: #760813;
+}
+
+.envoyer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Réduit l'espacement entre les boutons */
+}
+
+@media (max-width: 400px) {
+    .envoyer {
+        flex-direction: column;
+        gap: 5px; /* Réduit l'écart entre les boutons */
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .button button {
+        width: 100%;
+    }
+}

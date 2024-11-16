@@ -13,6 +13,9 @@ include ROOT . "/admin/_blocks/doctype.php";
     </div>
 
 
+
+    
+
     <div class="container">
         <h1 class="titre"><?= $title; ?></h1>
         <menu class="menuadmin">

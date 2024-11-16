@@ -139,3 +139,83 @@ li >a {
 h3{
     color: blue !important;
 }
+
+/* //////////////////////////////design global/////////////////////////////////////// */
+
+/* Conteneur du formulaire */
+form {
+    background-color: #000000; /* fond noir */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid #444;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Style du titre */
+form h1 {
+    font-size: 1.6em;
+    color: #ffffff; /* texte blanc */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Style pour les labels */
+form label {
+    font-size: 1em;
+    color: #ffffff; /* texte blanc */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style pour les champs de saisie */
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #777;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #333333; /* fond gris foncé */
+    color: #ffffff; /* texte blanc */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #999;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2); /* ombre blanche douce au focus */
+    outline: none;
+}
+
+/* Style pour le bouton de soumission */
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #227278; /* bordeaux pour le fond */
+    color: #000000; /* texte noir */
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2d8276; /* foncé au survol */
+    transform: translateY(-2px);
+}
+
+/* Style pour le message d'erreur */
+form p {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+

@@ -12,6 +12,7 @@ use App\Controllers\ControllerText;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formation bien être, entretien motivationnel. Se sentir bien en apprenant">
     <meta name="keywords" content="esprit zen, détente, formations, développement personnel.">
+    <meta name="robots" content="index, follow" />
 
     <link rel="stylesheet" href="/public/css/style.css">
 
