@@ -4,20 +4,10 @@ include ROOT . "/admin/_blocks/doctype.php";
 ?>
 
 <body>
-    <div class="logout-container">
-        <form action="/admin/login/logout" method="POST">
-            <button type="submit" class="btn-logout">Déconnexion</button>
-            <!-- <a href="/admin/login/logout" type="submit" class="btn-logout">Déconnexion</a> -->
 
-        </form>
-    </div>
-
-
-
-    
 
     <div class="container">
-        <h1 class="titre"><?= $title; ?></h1>
+
         <menu class="menuadmin">
             <li>
                 <a href="text">Gestion de contenu de pages</a>
@@ -35,12 +25,21 @@ include ROOT . "/admin/_blocks/doctype.php";
                 <a href="user">Liste des utilisateurs</a>
             </li>
         </menu>
-        <h2 class="titre"><?= $titlesecond; ?></h2>
+        <div class="logout-container">
+            <form action="/admin/login/logout" method="POST">
+                <button type="submit" class="btn-logout">
+                    <img class="deco" src="/admin/assets/icone/deco.png" alt="bouton déconnexion">
+
+                </button>
+            </form>
+        </div>
+        <h1 class="titre"><?= $title; ?></h1>
+        </div>
+
+        <h2 class="titre slt"><?= $titlesecond; ?></h2>
 
         <?php
-
         require_once $view;
-
         ?>
 </body>
 

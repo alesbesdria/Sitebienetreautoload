@@ -49,8 +49,8 @@ class ControllerUser
 
     public function store()
     {
-        // Récupérer les données du formulaire
-        $userData = $_POST; // On obtient les données directement depuis la superglobale $_POST
+        
+        $userData = $_POST; 
 
         // Vérifier que le mot de passe et sa confirmation correspondent
         if ($userData['user_mdp'] !== $userData['confMdp']) {

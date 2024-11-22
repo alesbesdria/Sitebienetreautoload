@@ -10,7 +10,7 @@ $galleryController = new ControllerGallery();
 ?>
 
 <div class="picgallery-container">
-    <h3>Galerie d'images</h3>
+    <!-- <h3>Galerie d'images</h3> -->
     <div class="mefGallery">
 
         <h3>Ajouter une nouvelle image</h3>

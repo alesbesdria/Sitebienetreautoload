@@ -127,14 +127,14 @@ h1.titre{
     flex-direction: column;
 }
 
-li >a {
+/* li >a {
     border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
     background-color: blueviolet;
     color: cyan !important;
     text-decoration: none !important;
-}
+} */
 
 h3{
     color: blue !important;
@@ -144,13 +144,9 @@ h3{
 
 /* Conteneur du formulaire */
 form {
-    background-color: #000000; /* fond noir */
+    background-color: #000000;
     border-radius: 10px;
-    padding: 20px;
     max-width: 400px;
-    margin: 50px auto;
-    border: 1px solid #444;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Style du titre */
@@ -194,8 +190,8 @@ form input[type="password"]:focus {
 /* Style pour le bouton de soumission */
 form button {
     width: 100%;
-    padding: 10px;
-    background-color: #227278; /* bordeaux pour le fond */
+    margin-top: 10px;
+    /* background-color: #227278; bordeaux pour le fond */
     color: #000000; /* texte noir */
     border: none;
     border-radius: 8px;
@@ -219,3 +215,120 @@ form p {
     font-weight: bold;
 }
 
+/* ////////////////////////////////////////////////////////////// */
+:root {
+    --green: #227278;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* pour un meilleur contrôle des marges et padding */
+}
+
+.container {
+    background-color: black;
+    color: var(--green);
+    text-decoration: none;
+    margin: 0; /* retire les marges autour de la div container */
+    padding: 5px; /* un padding interne pour ajouter un peu d’espace à l'intérieur */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre les éléments enfants horizontalement */
+}
+
+/* Style pour le menu en tant que liste de boutons */
+.menuadmin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* aligne les éléments avec espace autour */
+    list-style-type: none; /* retire les puces */
+    padding: 0;
+    width: 100%; /* pour occuper toute la largeur disponible */
+    max-width: 800px; /* limite la largeur pour éviter une trop grande étendue */
+}
+
+.menuadmin li {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: var(--green);
+    border-radius: 5px;
+    /* padding: 10px 20px; */
+}
+
+.menuadmin a {
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+/* Centrage du titre */
+.titre {
+    color: var(--green);
+    text-align: center; /* centre le texte */
+}
+
+.deco{
+    height: 35px;
+}
+
+
+
+.slt{
+    text-decoration: underline;
+}
+
+/* Lien "Ajouter un utilisateur" */
+a[href="/admin/user/create"] {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a[href="/admin/user/create"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+thead {
+    background-color: #f5f5f5;
+}
+
+thead th {
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Highlight actions column */
+tbody td:last-child {
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}

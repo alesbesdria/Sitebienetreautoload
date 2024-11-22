@@ -174,6 +174,7 @@ footer > a{
 
 
 .imgetp{
+    height: 100%;
     position: relative;
     z-index: 1;
 }
@@ -477,7 +478,7 @@ a.textcontact :hover{
 }
 
 
-}
+
 
 /* ///////////////////////////////// PAGE Connexion //////////////////////////////////////// */
 
@@ -606,7 +607,10 @@ a.textcontact :hover{
     body{
         background-image: url(/public/assets/image/stonezenmobile.png);
     }
-
+    .mefform {
+        display: flex;
+        flex-direction: column;
+    }
     .form{
         width: 100%;
     }
@@ -971,7 +975,18 @@ a.textcontact :hover{
 
   /* //////////////////////////////// Formulaire de contact ///////////////////////////////////////// */
 
+.mefform{
+    display: flex;
+    flex-direction: row;
+}
 
+.formleft{
+    margin: 5px;
+}
+
+.formright{
+    margin: 5px;
+}
 
 .message{
     margin-top: 5px;
@@ -990,19 +1005,21 @@ a.textcontact :hover{
     height: 350px;
     padding: 20px;
     font-family: "Cinzel", serif;
-    border-radius: 50px;
+    /* border-radius: 50px; */
     box-shadow: 2px 2px 15px black;
 }
-.formulaire {
+.formulaire{
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
+    border-radius: 50px;
     color: #fff;
     overflow: hidden;
     overflow-y: auto;
     width: 100%;
-    max-width: 350px;
     box-sizing: border-box;
+}
+.form{
+    border-radius: 50px;
 }
 
 .nouscontacter {
@@ -1010,13 +1027,12 @@ a.textcontact :hover{
     color: #fff;
     font-size: 20px;
     font-weight: bold;
-    margin: 0 0 5px 0; /* Marge nulle en haut et marge de 10px en bas */
+    margin: 0 0 0px 0; /* Marge nulle en haut et marge de 10px en bas */
 }
 
-.formulaire div {
+.fieldset{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 5px; /* Réduit l'espacement entre les sections */
+    margin: 0 0 0px 0;
 }
 
 .formulaire label {
@@ -1064,6 +1080,7 @@ a.textcontact :hover{
 }
 
 .envoyer .button button {
+    margin-left: 5px;
     padding: 8px 15px;
     font-size: 14px;
     border: none;
@@ -1074,26 +1091,26 @@ a.textcontact :hover{
 }
 
 #submit {
-    background-color: #2c94d5;
+    background-color: #08c437;
 }
 
 #submit:hover {
-    background-color: #034a76;
+    background-color: #037609;
 }
 
 #reset {
-    background-color: #dc3545;
+    background-color: #dcaa35;
 }
 
 #reset:hover {
-    background-color: #760813;
+    background-color: #764808;
 }
 
 .envoyer {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px; /* Réduit l'espacement entre les boutons */
+    justify-content: center;
 }
+
 
 @media (max-width: 400px) {
     .envoyer {
