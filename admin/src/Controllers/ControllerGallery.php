@@ -42,18 +42,21 @@ class ControllerGallery
                     $imgLocation = "/admin/assets/imagesgalerie/" . $photoGallery;
                     echo '
                     <div class="mefPhotoGallery">
-                        <img src="' . $imgLocation . '" alt="Photo de galerie" width="200" height="auto">
+                        <img src="' . $imgLocation . '" alt="Photo de galerie" height="200" height="auto">
+                        
                                                 <form action="" method="POST" enctype="multipart/form-data">
-                            <input type="file" name="newImageGallery">
-                            <button type="submit" name="modifyImageGallery" class="btn btn-primary">Modifier</button>
+                            <input class="mefinputgal" type="file" name="newImageGallery">
+                            <div class="mefminigal">
+                            <button class="btnmodifgal" type="submit" name="modifyImageGallery" class="btn btn-primary">Modifier</button>
                             <input type="hidden" name="photoId" value="' . $photoId . '">
                             <input type="hidden" name="oldImageName" value="' . $photoGallery . '">
                         </form>
                         <form action="" method="POST">
                             <input type="hidden" name="photoId" value="' . $photoId . '">
                             <input type="hidden" name="photoName" value="' . $photoGallery . '">
-                            <button type="submit" name="supprImageGallery" class="btn btn-danger">Supprimer</button>
+                            <button class="btnmodifgal" type="submit" name="supprImageGallery" class="btn btn-danger">Supprimer</button>
                         </form>
+                        </div>
 
                     </div>';
                 }

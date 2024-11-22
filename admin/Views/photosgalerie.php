@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 
 use Admin\Controllers\ControllerGallery;
@@ -12,18 +8,19 @@ $galleryController = new ControllerGallery();
 <div class="picgallery-container">
     <!-- <h3>Galerie d'images</h3> -->
     <div class="mefGallery">
-
-        <h3>Ajouter une nouvelle image</h3>
-        <form class="fileprinc" action="" method="POST" enctype="multipart/form-data">
-            <input type="file" id="imageGallery" name="imageGallery">
-            <button type="submit" name="addImageBtnGallery">Ajouter</button>
-        </form>
+        <div class="ajout">
+            <h3 class="newimg">Ajouter une nouvelle image</h3>
+            <form class="fileprinc" action="" method="POST" enctype="multipart/form-data">
+                <input class="mefinputgal" type="file" id="imageGallery" name="imageGallery">
+                <button type="submit" name="addImageBtnGallery">Ajouter</button>
+            </form>
+        </div>
 
         <?php
         $galleryController->addImage();
         ?>
 
-        <div id="gallery">
+        <div class="gallery" id="gallery">
             <?php
             $galleryController->displayGallery();
 
@@ -34,6 +31,3 @@ $galleryController = new ControllerGallery();
         </div>
     </div>
 </div>
-
-
-
